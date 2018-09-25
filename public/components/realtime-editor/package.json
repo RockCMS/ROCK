@@ -1,0 +1,76 @@
+{
+  "_from": "realtime-editor@*",
+  "_id": "realtime-editor@0.5.0",
+  "_inBundle": false,
+  "_integrity": "sha1-YmXlTZfzgnG91RVOAv6oFm33Z64=",
+  "_location": "/realtime-editor",
+  "_nodeVersion": "4.4.4",
+  "_npmOperationalInternal": {
+    "host": "packages-12-west.internal.npmjs.com",
+    "tmp": "tmp/realtime-editor-0.3.0.tgz_1462549149459_0.9156533244531602"
+  },
+  "_npmUser": {
+    "name": "take",
+    "email": "take@takedesign.dk"
+  },
+  "_npmVersion": "3.8.9",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "range",
+    "registry": true,
+    "raw": "realtime-editor@*",
+    "name": "realtime-editor",
+    "escapedName": "realtime-editor",
+    "rawSpec": "*",
+    "saveSpec": null,
+    "fetchSpec": "*"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/realtime-editor/-/realtime-editor-0.5.0.tgz",
+  "_shasum": "6265e54d97f38271bdd5154e02fea8166df767ae",
+  "_spec": "realtime-editor@*",
+  "_where": "/www/htdocs/realtime-editor/demo",
+  "author": {
+    "name": "T.A.K.E.",
+    "email": "take@takedesign.dk",
+    "url": "http://takedesign.dk"
+  },
+  "bugs": {
+    "url": "https://github.com/takedesign/realtime-editor/issues"
+  },
+  "bundleDependencies": false,
+  "dependencies": {
+    "diff-match-patch": "^1.0.0",
+    "socket.io": "^1.7.3"
+  },
+  "deprecated": false,
+  "description": "Simple collaborative textareas - unstable beta",
+  "devDependencies": {
+    "jshint": "^2.9.1"
+  },
+  "directories": {},
+  "dist": {
+    "shasum": "b7acbfd76681bc4572dcb87c031ce7fc98741ecc",
+    "tarball": "https://registry.npmjs.org/realtime-editor/-/realtime-editor-0.3.0.tgz"
+  },
+  "homepage": "https://github.com/takedesign/realtime-editor#readme",
+  "license": "Apache Version 2.0",
+  "main": "index.js",
+  "maintainers": [
+    {
+      "name": "take",
+      "email": "take@takedesign.dk"
+    }
+  ],
+  "name": "realtime-editor",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/takedesign/realtime-editor.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "0.5.0"
+}

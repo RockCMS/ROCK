@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+  </head>
+  <body>
+
+
+<div class="modal fade show in" id="login-modal" tabindex="-1" role="dialog" data-show="true" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+        <div class="modal-dialog">
+        <div class="loginmodal-container">
+          <h1><img src = "/assets/NBC_News_2011.png" width = "50" height="50">   CMS Login</h1><br>
+          <form>
+          <input type="text" name="user" placeholder="Username">
+          <input type="password" name="pass" placeholder="Password">
+          <input type="submit" name="login" class="login loginmodal-submit" value="Login">
+          </form>
+
+          <div class="login-help">
+          <a href="#">Register</a> - <a href="#">Forgot Password</a>
+          </div>
+        </div>
+      </div>
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+<script type="text/javascript">
+$(document).ready(function() {
+    $('#login-modal').modal('show');
+});
+</script>
+
+
+
+
+
+
+<script src="https://www.gstatic.com/firebasejs/4.8.2/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyDeAARs8SZ5yFdVWBBcyD0me9dnmRGk6oY",
+    authDomain: "rock-cms.firebaseapp.com",
+    databaseURL: "https://rock-cms.firebaseio.com",
+    projectId: "rock-cms",
+    storageBucket: "",
+    messagingSenderId: "835159180742"
+  };
+  firebase.initializeApp(config);
+</script>
+
+<script>
+var users = {
+  userName : 'Didarul',
+  userDetails : {
+    fName : "Richard",
+    lName : "Eden",
+    email: 'didarul@aol.com',
+    title: 'Sr Engineer',
+  },
+}
+
+
+var user = function (userName) {
+  var userObj = {
+    userName : userName,
+    userDetails : {
+      fName : "Jonathan",
+      lName : "Rivera",
+      email: 'jrivera@aol.com',
+      title: 'Sales Marketing',
+    },
+  }
+  return userObj
+}
+
+
+
+var ky = user('devAngel');
+ky.userDetails = {
+  fName : "Barack",
+  lName : "Obama",
+  email: 'bobama@aol.com',
+  title: 'President',
+}
+
+console.log(ky);
+
+for (var k in users) {
+    if (users.hasOwnProperty(k)) {
+      console.log(users[k]);
+      //console.log(k +':' + users[k]);
+    }
+}
+
+
+for(let x of Object.values(users)){
+    //console.log(x);
+}
+
+
+</script>
+
+<!--
+<script src="db-engine.js?x=7"></script>
+-->
+
+
+
+
+
+  </body>
+</html>
+
+
+
+
+
+
+

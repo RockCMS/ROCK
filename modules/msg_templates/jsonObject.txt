@@ -1,0 +1,401 @@
+/*
+  var jsonObject = {
+     type:"news_entry",
+     action:"save",
+     entry:{
+        presentation:"normal",
+        article_type:"post",
+        ads_enabled:1,
+        comments_enabled:1,
+        search_enabled:1,
+        publication_date:1517175420,
+        breaking_news:0,
+        external_link:"",
+        native_ad:0,
+        sponsor_label:"",
+        show_on_cover:0,
+        cover_headline:"",
+        source_site_name:"",
+        editorial_notes:"",
+        first_publication_date:1517175420,
+        video_art_url:"",
+        breaking_news_alert:0,
+        alert_type:null,
+        breaking_news_alert_title:"",
+        breaking_news_alert_delivery:"",
+        breaking_news_headline:"",
+        breaking_news_alert_email_body:"",
+        seo_slug:"",
+        social_media_headline:req.body.article_headline,
+        source_type:"author",
+        news_keywords:"",
+        standout_article:0,
+        autoplay_video:0,
+        canonical_url_override:"",
+        article_dek:"",
+        sponsored_by:"",
+        byline_display:"standard",
+        linked_sections:[
+
+        ],
+        linked_topics:[
+
+        ],
+        linked_sub_topics:[
+
+        ],
+        source:[
+
+        ],
+        curated_list:[
+
+        ],
+        content:req.body.article_body,
+        summary:req.body.article_headline,
+        hero:{
+           presentation:"default"
+        },
+        main_art:{
+           fid:null,
+           url:null,
+           width:"0",
+           height:"0",
+           title:null,
+           alt_text:null,
+           caption:null,
+           crop_rect:null,
+           focus_rect:null,
+           byline:null,
+           copyright:null,
+           source:null,
+           use_video_art:0
+        },
+        social_media_image:null,
+        cover_image:{
+           fid:null,
+           url:null,
+           width:"0",
+           height:"0",
+           title:null,
+           alt_text:null,
+           caption:null,
+           crop_rect:null,
+           focus_rect:null,
+           byline:null,
+           copyright:null,
+           source:null,
+           use_video_art:0
+        },
+        tease_image:null,
+        storyline:[
+
+        ],
+        labels:[
+
+        ],
+        channel:[
+
+        ],
+        linked_channels:[
+
+        ],
+        section:[
+           "20081"
+        ],
+        topic:[
+
+        ],
+        sub_topic:[
+
+        ],
+        primary_vertical:[
+
+        ],
+        linked_vertical_subsections:[
+
+        ],
+        title:req.body.article_headline,
+        seo_headline:req.body.article_headline,
+        nid:"716772",
+        type:"news_entry",
+        revision_timestamp:1517175421,
+        byline:[
+           {
+              byline:null,
+              byline_type:"author"
+           }
+        ],
+        hidden:0,
+        featuredAuthor:{
+           firstAuthorIsFeatured:false,
+           firstAuthorHasImage:false
+        }
+     }
+  }
+*/{
+   "type":"news_entry",
+   "action":"save",
+   "entry":{
+      "presentation":"normal",
+      "article_type":"post",
+      "ads_enabled":1,
+      "comments_enabled":1,
+      "search_enabled":1,
+      "publication_date":1517180460,
+      "breaking_news":0,
+      "external_link":"",
+      "native_ad":0,
+      "sponsor_label":"",
+      "show_on_cover":0,
+      "cover_headline":"",
+      "source_site_name":"",
+      "editorial_notes":"",
+      "first_publication_date":1517180496,
+      "video_art_url":"",
+      "breaking_news_alert":0,
+      "alert_type":null,
+      "breaking_news_alert_title":"",
+      "breaking_news_alert_delivery":"",
+      "breaking_news_headline":"",
+      "breaking_news_alert_email_body":"",
+      "seo_slug":"Sample NodeCMS TEST",
+      "social_media_headline":"Sample NodeCMS TEST",
+      "source_type":"author",
+      "news_keywords":"",
+      "standout_article":0,
+      "autoplay_video":0,
+      "canonical_url_override":"",
+      "article_dek":"",
+      "sponsored_by":"",
+      "byline_display":"standard",
+      "linked_sections":[
+
+      ],
+      "linked_topics":[
+
+      ],
+      "linked_sub_topics":[
+
+      ],
+      "source":[
+
+      ],
+      "curated_list":[
+
+      ],
+      "content":"<p>Sample NodeCMS TEST<\/p>",
+      "summary":"Sample NodeCMS TEST",
+      "hero":{
+         "presentation":"default"
+      },
+      "main_art":{
+         "fid":null,
+         "url":null,
+         "width":"0",
+         "height":"0",
+         "title":null,
+         "alt_text":null,
+         "caption":null,
+         "crop_rect":null,
+         "focus_rect":null,
+         "byline":null,
+         "copyright":null,
+         "source":null,
+         "use_video_art":0
+      },
+      "social_media_image":null,
+      "cover_image":{
+         "fid":null,
+         "url":null,
+         "width":"0",
+         "height":"0",
+         "title":null,
+         "alt_text":null,
+         "caption":null,
+         "crop_rect":null,
+         "focus_rect":null,
+         "byline":null,
+         "copyright":null,
+         "source":null,
+         "use_video_art":0
+      },
+      "tease_image":null,
+      "storyline":[
+
+      ],
+      "labels":[
+
+      ],
+      "channel":[
+
+      ],
+      "linked_channels":[
+
+      ],
+      "section":[
+         "20081"
+      ],
+      "topic":[
+
+      ],
+      "sub_topic":[
+
+      ],
+      "primary_vertical":[
+
+      ],
+      "linked_vertical_subsections":[
+
+      ],
+      "title":"Sample NodeCMS TEST",
+      "seo_headline":"Sample NodeCMS TEST",
+      "nid":"840062",
+      "type":"news_entry",
+      "revision_timestamp":1517182524,
+      "byline":[
+         {
+            "byline":null,
+            "byline_type":"author"
+         }
+      ],
+      "hidden":0,
+      "featuredAuthor":{
+         "firstAuthorIsFeatured":false,
+         "firstAuthorHasImage":false
+      }
+   }
+}/*
+  var jsonObject = {
+     type:"news_entry",
+     action:"save",
+     entry:{
+        presentation:"normal",
+        article_type:"post",
+        ads_enabled:1,
+        comments_enabled:1,
+        search_enabled:1,
+        publication_date:1517175420,
+        breaking_news:0,
+        external_link:"",
+        native_ad:0,
+        sponsor_label:"",
+        show_on_cover:0,
+        cover_headline:"",
+        source_site_name:"",
+        editorial_notes:"",
+        first_publication_date:1517175420,
+        video_art_url:"",
+        breaking_news_alert:0,
+        alert_type:null,
+        breaking_news_alert_title:"",
+        breaking_news_alert_delivery:"",
+        breaking_news_headline:"",
+        breaking_news_alert_email_body:"",
+        seo_slug:"",
+        social_media_headline:req.body.article_headline,
+        source_type:"author",
+        news_keywords:"",
+        standout_article:0,
+        autoplay_video:0,
+        canonical_url_override:"",
+        article_dek:"",
+        sponsored_by:"",
+        byline_display:"standard",
+        linked_sections:[
+
+        ],
+        linked_topics:[
+
+        ],
+        linked_sub_topics:[
+
+        ],
+        source:[
+
+        ],
+        curated_list:[
+
+        ],
+        content:req.body.article_body,
+        summary:req.body.article_headline,
+        hero:{
+           presentation:"default"
+        },
+        main_art:{
+           fid:null,
+           url:null,
+           width:"0",
+           height:"0",
+           title:null,
+           alt_text:null,
+           caption:null,
+           crop_rect:null,
+           focus_rect:null,
+           byline:null,
+           copyright:null,
+           source:null,
+           use_video_art:0
+        },
+        social_media_image:null,
+        cover_image:{
+           fid:null,
+           url:null,
+           width:"0",
+           height:"0",
+           title:null,
+           alt_text:null,
+           caption:null,
+           crop_rect:null,
+           focus_rect:null,
+           byline:null,
+           copyright:null,
+           source:null,
+           use_video_art:0
+        },
+        tease_image:null,
+        storyline:[
+
+        ],
+        labels:[
+
+        ],
+        channel:[
+
+        ],
+        linked_channels:[
+
+        ],
+        section:[
+           "20081"
+        ],
+        topic:[
+
+        ],
+        sub_topic:[
+
+        ],
+        primary_vertical:[
+
+        ],
+        linked_vertical_subsections:[
+
+        ],
+        title:req.body.article_headline,
+        seo_headline:req.body.article_headline,
+        nid:"716772",
+        type:"news_entry",
+        revision_timestamp:1517175421,
+        byline:[
+           {
+              byline:null,
+              byline_type:"author"
+           }
+        ],
+        hidden:0,
+        featuredAuthor:{
+           firstAuthorIsFeatured:false,
+           firstAuthorHasImage:false
+        }
+     }
+  }
+*/

@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title> welcome <%= title%> | My Dashboard</title>
+  <% include header %>
+</head>
+
+<body class="hold-transition skin-blue sidebar-mini">
+  <div class="wrapper">
+
+    <% include nav %>
+      <% include sidebar %>
+
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+          <!-- Content Header (Page header) -->
+          <section class="content-header">
+            <h1>
+              Dashboard
+              <small>Control panel Welcome <b><%= userData.name %></b>  <%= userSession %> </small>
+            </h1>
+            <ol class="breadcrumb">
+              <li>
+                <a href="#">
+                  <i class="fa fa-dashboard"></i> Home</a>
+              </li>
+              <li class="active">Dashboard
+
+                <select id="selectSite" class="select">
+                  <option value="">All Brands</option>
+                  <option value="nbcnews">NBCNews</option>
+                  <option value="msnbc">MSNBC</option>
+                  <option value="today">Today</option>
+                </select>
+
+              </li>
+            </ol>
+          </section>
+
+          <!-- Main content -->
+          <section class="content">
+            <!-- Small boxes (Stat box) -->
+            <div class="row">
+
+              <div class="col-lg-3 col-xs-6">
+                <!-- small box -->
+                <div class="small-box bg-aqua">
+                  <div class="inner">
+                    <h3>150 K</h3>
+
+                    <p>New Visits</p>
+                  </div>
+                  <div class="icon">
+                    <i class="ion ion-pie-graph"></i>
+                  </div>
+                  <a href="#" class="small-box-footer">More info
+                    <i class="fa fa-arrow-circle-right"></i>
+                  </a>
+                </div>
+              </div>
+
+              <!-- ./col -->
+              <div class="col-lg-3 col-xs-6">
+                <!-- small box -->
+                <div class="small-box bg-green">
+                  <div class="inner">
+                    <h3>19
+                      <sup style="font-size: 20px">%</sup>
+                    </h3>
+
+                    <p>Bounce Rate</p>
+                  </div>
+                  <div class="icon">
+                    <i class="ion ion-stats-bars"></i>
+                  </div>
+                  <a href="#" class="small-box-footer">More info
+                    <i class="fa fa-arrow-circle-right"></i>
+                  </a>
+                </div>
+              </div>
+              <!-- ./col -->
+              <div class="col-lg-3 col-xs-6">
+                <!-- small box -->
+                <div class="small-box bg-yellow">
+                  <div class="inner">
+                    <h3>42K</h3>
+
+                    <p>SEO Traffic</p>
+                  </div>
+                  <div class="icon">
+                    <i class="ion ion-person-add"></i>
+                  </div>
+                  <a href="#" class="small-box-footer">More info
+                    <i class="fa fa-arrow-circle-right"></i>
+                  </a>
+                </div>
+              </div>
+              <!-- ./col -->
+              <div class="col-lg-3 col-xs-6">
+                <!-- small box -->
+                <div class="small-box bg-red">
+                  <div class="inner">
+                    <h3>31K</h3>
+
+                    <p>Unique Visitors</p>
+                  </div>
+                  <div class="icon">
+                    <i class="ion ion-pie-graph"></i>
+                  </div>
+                  <a href="#" class="small-box-footer">More info
+                    <i class="fa fa-arrow-circle-right"></i>
+                  </a>
+                </div>
+              </div>
+              <!-- ./col -->
+            </div>
+            <!-- /.row -->
+            <!-- Main row -->
+            <div class="row">
+              <div class="box box-info">
+                <div class="box-body">
+                  <label>Top Trending: </label>
+                  <button type="button" class="btn bg-maroon margin">Trump</button>
+                  <button type="button" class="btn bg-purple margin">Kardashian</button>
+                  <button type="button" class="btn bg-navy margin">Taylor Swift</button>
+                  <button type="button" class="btn bg-orange margin">Oprah</button>
+                  <button type="button" class="btn bg-olive margin">Jordan</button>
+                  <button type="button" class="btn bg-maroon margin">Jay Z</button>
+                  <button type="button" class="btn bg-purple margin">Beyonce</button>
+                  <button type="button" class="btn bg-navy margin">Jason Bourne</button>
+                </div>
+                <!-- /.box-body -->
+              </div>
+              <!-- /.box -->
+              <div class="box box-danger">
+
+              <form ref='uploadForm' id='uploadForm' action='/upload' method='post' encType="multipart/form-data">
+                <label for="exampleInputFile">File input</label>
+                <input type="file" id="imgUploader" name="sampleFile">
+                <button type="submit" class="btn-success">Publish</button>
+              </form>
+
+                <form action="/" method="get">
+                  <div class="box-header with-border">
+                    <!-- tools box -->
+                    <div class="pull-right box-tools">
+                      <button type="button" class="btn btn-info btn-sm" data-widget="collapse" data-toggle="tooltip" title="Collapse">
+                        <i class="fa fa-minus"></i>
+                      </button>
+                      <button type="button" class="btn btn-info btn-sm" data-widget="remove" data-toggle="tooltip" title="Remove">
+                        <i class="fa fa-times"></i>
+                      </button>
+                    </div>
+                    <!-- /. tools -->
+                    <h3 class="box-title">Advanced Search</h3>
+                  </div>
+
+                  <div class="box-body">
+                    <div class="form-group col-xs-5">
+                      <label>Title </label>
+                      <input type="text" class="form-control" name="headline" value="<%= headline %>" placeholder="Enter ...">
+                    </div>
+
+                    <div class="form-group col-xs-3">
+                      <label>Date Range</label>
+                      <div class="input-group">
+                        <div class="input-group-addon">
+                          <i class="fa fa-calendar"></i>
+                        </div>
+                        <input type="text" class="form-control pull-right" id="reservation">
+                      </div>
+                    </div>
+
+
+                    <div class="form-group col-xs-3">
+                      <label>Publish Status</label>
+                      <select class="form-control select2" style="width: 100%;">
+                        <option selected="selected">Published</option>
+                        <option>Draft</option>
+                        <option>Live</option>
+                        <option>Hidden</option>
+                        <option>Unpublished</option>
+                      </select>
+                    </div>
+
+                    <div class="form-group col-xs-3">
+                      <label>Content Type</label>
+                      <select name="content_type" class="form-control select2" style="width: 100%;">
+                        <option selected="selected" value="">- Any -</option>
+                        <option value="article">Article</option>
+                        <option value="byline">Byline</option>
+                        <option value="card">Card</option>
+                        <option value="curatedlist">Curated List</option>
+                        <option value="slideshow">Slideshow</option>
+                        <option value="source">Source</option>
+                        <option value="staticpage">Static Page</option>
+                      </select>
+                    </div>
+
+                    <div class="form-group col-xs-3">
+                      <label>Article Type</label>
+                      <select class="form-control select2" style="width: 100%;">
+                        <option selected="selected">Any</option>
+                        <option>Draft</option>
+                        <option>Live</option>
+                        <option>Hidden</option>
+                        <option>Unpublished</option>
+                      </select>
+                    </div>
+
+                    <div class="form-group col-xs-3">
+                      <label>Card Type</label>
+                      <select class="form-control select2" style="width: 100%;">
+                        <option selected="selected">Any</option>
+                        <option>Draft</option>
+                        <option>Live</option>
+                        <option>Hidden</option>
+                        <option>Unpublished</option>
+                      </select>
+                    </div>
+
+                    <div class="form-group col-xs-3">
+                      <label>Section/Topic/Storyline</label>
+                      <select name="section" class="form-control select2" style="width: 100%;">
+                        <option selected="selected">Any</option>
+                      <% if(typeof sections != 'undefined') { %>
+                        <% Object.keys(sections).forEach(key => { %>
+                          <option value="<%= sections[key].id %>">
+                            <%=sections[key].name %>
+                          </option>
+                          <% }); %>
+                      <% } %>
+                      </select>
+                    </div>
+
+                    <div class="form-group col-xs-3">
+                      <label>Byline</label>
+                      <select class="form-control select2" style="width: 100%;">
+                        <option selected="selected">Any</option>
+                        <option>Draft</option>
+                        <option>Live</option>
+                        <option>Hidden</option>
+                        <option>Unpublished</option>
+                      </select>
+                    </div>
+
+                    <div class="form-group col-xs-3">
+                      <label>Copyedited</label>
+                      <select class="form-control select2" style="width: 100%;">
+                        <option selected="selected">Any</option>
+                        <option>NO</option>
+                        <option>YES</option>
+                      </select>
+                    </div>
+
+                    <div class="form-group col-xs-2">
+                      <label>Created By</label>
+                      <input type="text" class="form-control" name="author" value="" placeholder="Enter ...">
+                    </div>
+
+                    <div class="form-group col-xs-2">
+                      <label>&nbsp; </label>
+                      <button type="button" class="btn btn-block btn-default">RESET</button>
+                    </div>
+
+                    <div class="form-group col-xs-2">
+                      <label>&nbsp; </label>
+                      <button type="submit" class="btn btn-block btn-success">SEARCH</button>
+                    </div>
+                  </div>
+                  <!-- /.box-body -->
+                </form>
+              </div>
+              <!-- /.box -->
+              <div class="box">
+                <div class="box-header">
+                  <h3 class="box-title">All Recent Contents</h3>
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+                  <table id="example1" class="table table-bordered table-striped">
+                    <thead>
+                      <tr>
+                        <th>Image</th>
+                        <th>Node ID</th>
+                        <th>Title</th>
+                        <th>Type</th>
+                        <th>Author</th>
+                        <th>Status</th>
+                        <th>Created</th>
+                        <th>Brand</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                  </table>
+                </div>
+                <!-- /.box-body -->
+              </div>
+              <!-- /.box -->
+
+
+              <!-- right col -->
+            </div>
+            <!-- /.row (main row) -->
+
+          </section>
+          <!-- /.content -->
+        </div>
+        <!-- /.content-wrapper -->
+
+
+        <% include footer %>
+          <% include control-sidebar %>
+
+            <!-- Add the sidebar's background. This div must be placed
+       immediately after the control sidebar -->
+            <div class="control-sidebar-bg"></div>
+  </div>
+  <!-- ./wrapper -->
+
+  <% include footer-scripts %>
+
+
+    <script>
+      $(function () {
+
+        $("#selectSite").change(function () {
+          //alert($(this).val());
+          //var url_param = window.location.search.split("?brand=");
+          //alert(url_param[1]);
+          if ($(this).val()) {
+            location.href = '?publisher=' + $(this).val();
+          } else {
+            location.href = '/';
+          }
+
+        });
+
+        //Date range picker
+        $('#reservation').daterangepicker()
+
+        let urlQueryVal = location.search.split('?publisher=');
+        if (urlQueryVal[1]) {
+          $("#selectSite").val(urlQueryVal[1]);
+        }
+
+        $('#example1').DataTable({
+          paging: true,
+          searching: true,
+          ordering: true,
+          info: true,
+          autoWidth: true,
+          iDisplayLength: 20,
+          processing: true,
+          serverSide: true,
+          initComplete: function (settings, json) {
+            //alert( $('#example1 td:eq(4)').html() );
+            //$('#example1 td:eq(4)').html('<span class="label label-success">' + $('#example1 td:eq(4)').html() );
+          },
+          ajax: {
+            url: 'http://localhost:4000/jobyapi/' + window.location.search.split("?brand="),
+            crossDomain: true,
+            type: 'GET',
+            columns: [
+              { 'data': 'image' },
+              { 'data': 'nid' },
+              { 'data': 'title' },
+              { 'data': 'type' },
+              { 'data': 'user_name' },
+              { 'data': 'status' },
+              { 'data': 'created' },
+              { 'data': 'brand' }
+            ]
+          }
+        }).on('draw', function () {
+          $('tr td:nth-child(6)').each(function () {
+            var node_status = ($(this).html() == 'Published') ? 'success' : 'info';
+            $(this).html('<span class="label label-' + node_status + '">' + $(this).html() + '</span>');
+          });
+
+          $('tr td:nth-child(2)').each(function () {
+            $(this).html('<a href="/node/' + $(this).html() + '/edit">' + $(this).html() + '</a>');
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

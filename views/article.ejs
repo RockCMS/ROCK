@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title><%- (contentObject.headlinePrimary) ? 'Edit Article: ' + contentObject.headlinePrimary : 'Add Article' %> | My Dashboard</title>
+  <% include header %>
+
+  <style>
+    .affix {
+      top: 0px;
+      position: fixed;
+      z-index: 1000;
+    }
+  </style>
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+  <div class="wrapper">
+
+    <% include nav %>
+    <% include sidebar %>
+
+    <!-- Select2 -->
+    <link rel="stylesheet" href="/theme/bower_components/select2/dist/css/select2.min.css">
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+      <!-- Content Header (Page header) -->
+      <section class="content-header">
+        <h1><%- (contentObject.headlinePrimary) ? 'Edit Article: <em>' + contentObject.headlinePrimary + '</em>': 'Add Article' %>
+          <%- (localNodeData && localNodeData.locked && userData.uid != localNodeData.locked_by) ? '<i class="fa fa-fw fa-lock"></i>' : '' %>
+        </h1>
+        <ol class="breadcrumb">
+          <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+          <li><a href="#"><i class="fa  fa-clock-o"></i> Revisions</a></li>
+        </ol>
+      </section>
+
+  <!-- Main content -->
+      <section class="content">
+        <form id = "content_type_article" action="/submit/" method="post">
+          <div class="row">
+            <div data-spy="affix" data-offset-top="100" class="col-md-12">
+              <div class="box box-info">
+                <div class="col-md-8">
+                  <div class="content-headline col-md-12 form-group">
+                    <input type="text" class="form-control input-lg" id="topheadlinePrimary" name="headlinePrimary" value="<%= (contentObject.headlinePrimary) ? contentObject.headlinePrimary : '' %>" placeholder="Enter ..."><div class="messages"></div>
+                </div>
+              </div>
+              <div class="col-mid-4"></div>
+                <!-- /.box-header -->
+                <div class="box-body">
+                  <% if (typeof frm_buttons !== 'undefined') { %>
+                    <%- frm_buttons %>
+                  <% } %>
+                  <!-- /.row -->
+                </div>
+
+                <!-- /.col -->
+              </div>
+              <!-- /.row -->
+
+            </div>
+          </div>
+          <!-- /.box -->
+
+
+          <% if(contentObject.savedFlag == true){ %>
+          <div class="alert alert-info alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            Content Saved Successfully !!.
+          </div>
+          <% } %>
+
+          <div class="box box-info">
+            <div class="box-body">
+              <% headlineGroup.forEach((formDataList) => { %>
+                <%- formDataList %>
+              <% }) %>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+          <div class="box box-info">
+            <div class="box-body" ondrop="drop(event)" ondragover="allowDrop(event)">
+              <% mediaGroup.forEach((formDataList) => { %>
+                <%- formDataList %>
+              <% }) %>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+          <div class="box">
+            <div class="box-header">
+              <h3 class="box-title">Content
+                <% if (localNodeData && localNodeData.locked && userData.uid == localNodeData.locked_by) { %>
+                <small>
+                 &nbsp; <strong>Auto Saving .. <span id ="auto-save-display-countdown" class="text-light-blue"></span></strong>
+                </small>
+                <% } %>
+              </h3>
+              <!-- tools box -->
+              <div class="pull-right box-tools">
+                <span id ="revision-list" class="text-light-warning"></span>
+                <button type="button" class="btn btn-default btn-sm" data-widget="collapse" data-toggle="tooltip"
+                        title="Collapse">
+                  <i class="fa fa-minus"></i></button>
+                <button type="button" class="btn btn-default btn-sm" data-widget="remove" data-toggle="tooltip"
+                        title="Remove">
+                  <i class="fa fa-times"></i></button>
+              </div>
+              <!-- /. tools -->
+            </div>
+
+            <div class ="auto-tag-container" style = "margin-left: 20px;"></div>
+
+            <!-- /.box-header -->
+            <div class="box-body pad">
+
+                <textarea name = "article_body" id="mytextarea" col="40"><%- (localNodeData && localNodeData.revisions) ? localNodeData.revisions : contentObject.body %></textarea>
+            </div>
+          </div>
+          <!-- Media options -->
+          <div class="box box-info">
+            <div class="box-body">
+              <% metadataGroup.forEach((formDataList) => { %>
+                <%- formDataList %>
+              <% }) %>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+          <!-- Publishing options -->
+          <div class="box box-info">
+            <div class="box-body">
+              <% publishingGroup.forEach((formDataList) => { %>
+                <%- formDataList %>
+              <% }) %>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+        </div>
+        <!-- /.col-->
+      </div>
+      <!-- ./row -->
+    </form>
+
+    </section>
+      <!-- /.content -->
+
+
+    </div>
+    <!-- /.content-wrapper -->
+
+
+  <% include footer %>
+  <% include control-sidebar %>
+
+
+
+    <!-- Add the sidebar's background. This div must be placed
+        immediately after the control sidebar -->
+    <div class="control-sidebar-bg"></div>
+  </div>
+  <!-- ./wrapper -->
+
+<% include footer-scripts %>
+<% include form-header %>
+
+<script src="/public/rcms_plugins/widgets/widgets.js"></script>
+<script src="/public/dist/js/featuredLink.js"></script>
+
+<!-- Page script -->
+<script>
+  $(function () {
+
+ const highlightText = (editor) => {
+    let selectedText = editor.selection.getContent({format : 'text'});
+    let selectedHTML = editor.selection.getNode();
+    let plainText = selectedText;
+    console.log("Selected HTML:", editor.selection.getNode());
+    editor.windowManager.open({
+      title: 'Add Comment',
+      body: {type: 'textbox', name: 'my_textbox', label : 'My Comment', value: plainText },
+      onsubmit: function(e) {
+        selectedText = `
+  <span class="tooltip">${selectedText}
+    <span class="tooltiptext track-changes"><%- userData.name %>: ${e.data.my_textbox}</span>
+  </span>
+        `;
+        editor.insertContent(selectedText);
+      }
+    });
+ }
+
+  // Hide Sidebar on edit.
+  $('.sidebar-toggle').click();
+
+  //https://github.com/StevenDevooght/tinyMCE-mention
+  tinymce.init({
+    selector: '#mytextarea',
+    height: 500,
+    theme: 'modern',
+    menubar: false,
+    statusbar: false,
+    forced_root_block : '',
+    force_br_newlines : false,
+    force_p_newlines : false,
+    plugins: 'rcms_widget paste print mention autosave preview fullpage searchreplace autolink directionality visualblocks visualchars fullscreen image link media template codesample table charmap hr pagebreak nonbreaking anchor toc insertdatetime advlist lists textcolor wordcount imagetools contextmenu colorpicker textpattern help',
+    toolbar1: 'highlightText | restoredraft | formatselect | bold italic strikethrough forecolor backcolor | link | alignleft aligncenter alignright alignjustify  | numlist bullist outdent indent | image| rcms_widget',
+    image_advtab: true,
+    templates: [
+      { title: 'Test template 1', content: 'Test 1' },
+      { title: 'Test template 2', content: 'Test 2' }
+    ],
+    mentions: {
+        source: [
+            { name: 'Amazon Product IPHONE 11' },
+            { name: 'Ebay Product Diamond Jewelry' },
+            { name: 'Orgnanic LED TV 120 Inch' },
+            { name: 'Spring Dress' }
+        ]
+    },
+    autosave_interval: "30s",
+    media_live_embeds: true,
+    paste_data_images: true,
+    // without images_upload_url set, Upload tab won't show up
+    images_upload_url: '/upload',
+    // we override default upload handler to simulate successful upload
+    images_upload_handler: function (blobInfo, success, failure) {
+      setTimeout(function() {
+        //console.log(blobInfo);
+        // no matter what you upload, we will turn it into TinyMCE logo :)
+        success('http://moxiecode.cachefly.net/tinymce/v9/images/logo.png');
+      }, 2000);
+    },
+  init_instance_callback: function (editor) {
+    editor.on('Dirty', function (e) {
+      //alert('Editor is dirty!');
+    });
+
+    let triggerWord = '';
+    editor.on("keyup", function(e){
+      if (e.keyCode == 32 && triggerWord != '') {
+        //alert("The word is: " + triggerWord);
+        $.ajax({
+          url: 'http://localhost:4000/auto-tag/',
+          type: 'post',
+          timeout: 10000,
+          data: { keyword: triggerWord.toLowerCase() },
+          success: function(data) {
+            $('.auto-tag-container').html(data);
+            //alert(data);
+          },
+          error: function(request, status, err) {
+            console.log("Auto Tag Error: ", err);
+          }
+        });
+        triggerWord = '';
+      }
+     triggerWord += String.fromCharCode(e.which).toLowerCase();
+  });
+
+    editor.on('PastePreProcess', function (e) {
+      //alert("I am about to Paste" + e.content);
+
+    if (new RegExp(/.*(amazon\.com)/, "i").test(e.content)) {
+      const re = /\/([A-Z0-9]{10})(\/|\?|\b)/i
+      let asinMatch = re.exec(e.content);
+      let asinID = asinMatch[1];
+      e.content = '';
+      $.ajax({
+        url: 'http://localhost:4000/helpers/product-api/',
+        timeout: 10000,
+        data: { asin: asinID },
+        success: function(data) {
+
+          let contentDisp = `
+          <div class="mycustomwrapper">
+            <div>
+              <img src ="`+ data.image +`" height = "200" width = "260">
+            </div>
+              <p>`+ data.title +`</p>
+              <div class="ribbon-wrapper">
+                  <div class="ribbon red">` + data.price + `</div>
+              </div>
+          </div>
+          `;
+
+          tinymce.activeEditor.insertContent(contentDisp);
+        },
+        error: function(request, status, err) {
+          console.log("Product Error: ", err);
+        }
+      });
+    }
+
+    if (new RegExp(/.*(nbcnews\.com)/, "i").test(e.content)) {
+      let featuredURL = e.content;
+      e.content = '';
+      $.ajax({
+        url: 'http://localhost:4000/helpers/featuredlinks',
+        timeout: 10000,
+        type: 'get',
+        data: { url: featuredURL },
+        success: function(data) {
+
+          let contentDisp = `
+          <div class="mycustomwrapper">
+            <div>
+              <img src ="`+ data.teaseImage.url.primary +`" height = "200" width = "260">
+            </div>
+              <p>`+ data.headline.primary +`</p>
+              <div class="ribbon-wrapper">
+                  <div class="ribbon green">Featured Link</div>
+              </div>
+          </div>
+          `;
+
+
+          tinymce.activeEditor.insertContent(contentDisp);
+        },
+        error: function(request, status, err) {
+          console.log("Featured Link Error: ", err);
+          //alert("Error: " + request + status + err);
+        }
+      });
+    }
+
+
+    if (new RegExp(/.*(facebook\.com)/, "i").test(e.content)) {
+      e.content = '<iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fairtableapp%2Fposts%2F1976245169287448&width=200" width="200" height="180" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>';
+    }
+
+    if (new RegExp(/.*(youtube\.com)/, "i").test(e.content)) {
+      let youTubeId = '';
+      const regExp = /^.*(youtu\.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+      const match = e.content.match(regExp);
+      if (match && match[2].length == 11) {
+        youTubeId = match[2];
+      }
+      e.content = '<iframe width="200" height="180" src="https://www.youtube.com/embed/'+ youTubeId + '" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
+    }
+
+    });
+
+    editor.on('PastePostProcess', function (e) {
+      //alert("I am about to Paste" + e.content);
+      //e.content += '<h1>HELLOW WORLD</h1>!';
+
+    });
+
+      //ed.execCommand('mceImage');
+    },
+
+    content_css: [
+      '/public/dist/css/tinymce.css?cachebust=11115'
+    ],
+    setup: function(editor) {
+
+      editor.addButton('highlightText', {
+        //icon: 'insertdatetime',
+        image: '/public/rcms_plugins/widgets/highlighter.png',
+        tooltip: "Highlight Text",
+        onclick: function () {
+          highlightText(editor);
+        }
+      });
+    }
+
+   });
+
+  });
+
+  // Dynamic Validation Constrains
+  var constraints =<%-JSON.stringify(validPattern)%>
+  let validate_data = new validation();
+  validate_data.validateForm();
+
+  $( function() {
+
+    //Dynamic JS Inject
+    <%-formJSHeader%>
+
+    $('.select2').select2();
+
+    $('#insert_media').click(function() {
+      modalObj('http://localhost:4000/media' , {type: 'GET', contextClass: 'rock-cms-image-grid', modalContainer: '#media_modal', callBack: testClick});
+    });
+
+
+    const testClick = (targetObj) => {
+        $(targetObj).find('a').click(function (e) {
+          //console.log(this);
+          //console.log("Image Source:", $(this).find('figure img').attr('src') );
+          tinymce.activeEditor.selection.setNode(tinymce.activeEditor.dom.create('img', {src: $(this).find('figure img').attr('src'), title: 'HELLOOO'}));
+          $('.modal-close-button').click();
+        });
+    }
+
+  $('#media_modal .modal-settings, #media_modal .modal-insert-button').click(function() {
+      alert("TEST");
+    });
+
+    $('.btn-save-preview').click(function() {
+      let randomNid = 108135 + parseInt(Date.now().toString().slice(8, 12));
+      let msgTitle = $('#topheadlinePrimary').val();
+      //let msgBody = tinyMCE.activeEditor.getContent();
+      //alert( $('#topheadlinePrimary').val() + tinyMCE.activeEditor.getContent());
+
+let sysMSGData = `{"type":"news_entry","action":"save","entry":{"article_type":"post","ads_enabled":1,"article_dek":"","autoplay_video":1,"comments_enabled":1,"search_enabled":1,"publication_date":1530389843,"breaking_news":0,"slideshow":"","external_link":"","native_ad":0,"show_on_cover":0,"cover_headline":"Test","source_site_name":"","editorial_notes":"TEST","first_publication_date":1530389820,"video_art_url":"","use_video_art":0,"breaking_news_alert":0,"breaking_news_alert_title":"","seo_headline":"Test","seo_slug":"Test","social_media_headline":"Test","source_type":"author","sponsored_by":"","hide_associated_playlist":0,"hidden":0,"ecommerce_enabled":false,"byline_id":[],"linked_sections":[],"linked_topics":[],"linked_sub_topics":[],"source":["93716"],"curated_list":[],"slideshow_internal":[],"show":[],"additional_shows":[],"article_label":[],"additional_article_labels":[],"linked_anchors":[],"content":"<p>THIS IS TEST<\/p>","summary":"Test","hero":{"presentation":"default"},"main_art":{"fid":null,"url":null,"width":"0","height":"0","title":null,"alt_text":null,"caption":null,"crop_rect":null,"focus_rect":null,"byline":null,"copyright":null,"source":null,"use_video_art":0},"cover_image":{"fid":null,"url":null,"width":"0","height":"0","title":null,"alt_text":null,"caption":null,"crop_rect":null,"focus_rect":null,"byline":null,"copyright":null,"source":null,"use_video_art":0},"series":[],"section":["109"],"topic":["146"],"sub_topic":[],"title":"${msgTitle}","nid":"${randomNid}","type":"news_entry","revision_timestamp":1530393170,"byline":[{"byline":null,"byline_type":"author"}],"featuredAuthor":{"firstAuthorIsFeatured":false,"firstAuthorHasImage":false}}}`;
+
+      $.ajax({
+        url: 'http://sys-cms.today.com/php-rabbit/msg-broker.php',
+        timeout: 10000,
+        type: 'post',
+        crossDomain: true,
+        data: {
+          api_key: '0piAGQvrpb12aACwHN920sJTpujRTe',
+          data: sysMSGData,
+          routing: 'draft',
+          exchange: 'sys04todaycmscontent',
+        },
+        success: function(data) {
+          window.open('https://today-uat.herokuapp.com/series/veterans/food-t' + randomNid, '_blank');
+        },
+        error: function(request, status, err) {
+          //alert("Error: " + request + status + err);
+          console.log("Preview Button Error: ", err);
+        }
+      });
+    });
+
+
+  });
+
+  $(function () {
+
+    var addFormGroup = function (event) {
+      event.preventDefault();
+      var $formGroup = $(this).closest('.form-group');
+      var $multipleFormGroup = $formGroup.closest('.multiple-form-group');
+      var $formGroupClone = $formGroup.clone();
+
+      $(this)
+        .toggleClass('btn-default btn-add btn-danger btn-remove')
+        .html('–');
+
+      $formGroupClone.find('input').val('');
+      $formGroupClone.insertAfter($formGroup);
+
+      var $lastFormGroupLast = $multipleFormGroup.find('.form-group:last');
+      if ($multipleFormGroup.data('max') <= countFormGroup($multipleFormGroup)) {
+        $lastFormGroupLast.find('.btn-add').attr('disabled', true);
+      }
+      // Add draggable behavior once there is more than one field.
+      $formGroupClone.closest('tbody').sortable({axis: "y"});
+      // TODO: Do we need logic to recalculate deltas and update 'id' tags?
+    };
+
+    var removeFormGroup = function (event) {
+      event.preventDefault();
+      var $formGroup = $(this).closest('.form-group');
+      var $multipleFormGroup = $formGroup.closest('.multiple-form-group');
+
+      var $lastFormGroupLast = $multipleFormGroup.find('.form-group:last');
+      if ($multipleFormGroup.data('max') >= countFormGroup($multipleFormGroup)) {
+          $lastFormGroupLast.find('.btn-add').attr('disabled', false);
+      }
+
+      $formGroup.remove();
+    };
+
+    var countFormGroup = function ($form) {
+      return $form.find('.form-group').length;
+    };
+
+   $(document).on('click', '.btn-add', addFormGroup);
+   $(document).on('click', '.btn-remove', removeFormGroup);
+
+  });
+
+  // Test: Fill out secondary headline fields from Primary.
+  // The settings.dataShadow property exists to handle this more programmatically.
+  // This should be locked/warn after an article is published.
+  $(function () {
+    document.getElementById("topheadlinePrimary").onkeyup = function() {
+      document.getElementById("headlineSeo").value = this.value;
+      document.getElementById("headlineSocial").value = this.value;
+    }
+
+    $('.cont-block-headlinePrimary').hide();
+  });
+
+  // Add checkbox indicators to the collapsed Publishing Options field group.
+  $(function () {
+    $('.publishing-group-collapse').on('hidden.bs.collapse', function() {
+      let values = [];
+      // Get timestamp values.
+      $('.fieldset-publishing-group input[type="text"')
+        .each(function() {
+          values.push('<span class="btn btn-primary btn-xs">' + $(this).attr('title') + ': ' + $(this).val() + '</span>');
+        });
+      // Get checkbox values.
+      $('.fieldset-publishing-group div.checkbox input[type="checkbox"]:checked')
+        .each(function() {
+          values.push('<span class="badge progress-bar-success">' + $(this).attr('title') + '</span>');
+        })
+      $('#publishing-group-badges').html(values.join(' '));
+    });
+    $('.publishing-group-collapse').on('show.bs.collapse', function() {
+      $('#publishing-group-badges').html('');
+    });
+    if ($('#fieldset-publishing-group').hasClass('collapse')) {
+      let values = [];
+      // Get timestamp values.
+      $('.fieldset-publishing-group input[type="text"')
+        .each(function() {
+          values.push('<span class="btn btn-primary btn-xs">' + $(this).attr('title') + ': ' + $(this).val() + '</span>');
+        });
+      // Get checkbox values.
+      $('.fieldset-publishing-group div.checkbox input[type="checkbox"]:checked')
+        .each(function() {
+          values.push('<span class="badge progress-bar-success">' + $(this).attr('title') + '</span>');
+        })
+      $('#publishing-group-badges').html(values.join(' '));
+    }
+  })
+
+  // Add Taxonomy badge indicators for collapsed Metadata field group.
+  $(function () {
+    $('.metadata-group-collapse').on('hidden.bs.collapse', function() {
+      let values = [];
+      $('.fieldset-metadata-group select option:selected')
+        .each(function() {
+          values.push('<span class="btn btn-primary btn-xs">' + $(this).attr('title') + '</span>');
+        })
+      $('#metadata-group-badges').html(values.join(' '));
+    });
+    $('.metadata-group-collapse').on('show.bs.collapse', function() {
+      $('#metadata-group-badges').html('');
+    });
+    if ($('#fieldset-metadata-group').hasClass('collapse')) {
+      let values = [];
+      $('.fieldset-metadata-group select option:selected')
+      .each(function() {
+        values.push('<span class="btn btn-primary btn-xs">' + $(this).attr('title') + '</span>');
+      })
+      $('#metadata-group-badges').html(values.join(' '));
+    }
+  })
+
+  // Add media images to collapsed Media field group.
+  $(function () {
+    $('.media-group-collapse').on('hidden.bs.collapse', function() {
+      let values = [];
+      $('.fieldset-media-group img')
+        .each(function() {
+          values.push('<img height="50px" src="' + $(this).attr('src') + '" />');
+        })
+      $('#media-group-badges').html(values.join(' '));
+    });
+    $('.media-group-collapse').on('show.bs.collapse', function() {
+      $('#media-group-badges').html('');
+    });
+    if ($('#fieldset-media-group').hasClass('collapse')) {
+      let values = [];
+      $('.fieldset-media-group img')
+      .each(function() {
+        values.push('<img height="50px" src="' + $(this).attr('src') + '" />');
+      })
+      $('#media-group-badges').html(values.join(' '));
+    }
+  });
+
+  // Enable simple 'Preview' button.
+  $(function() {
+    $('#preview-button').on('click', function(e) {
+      const url = $('#preview-button').attr('data-node-url');
+      previewUrl = url.replace("www", "preview");
+      window.open(previewUrl, '_blank');
+    })
+  });
+
+  // Add date picker.
+  // $('#datePublished-timestamp').daterangepicker();
+  // $('#dateModified-timestamp').daterangepicker();
+
+  $(function() {
+    if ($('input[name=headlinePrimary]').val() === '') {
+      $('input[name=headlinePrimary]').focus();
+    }
+  });
+
+  <% if (localNodeData && localNodeData.locked && userData.uid == localNodeData.locked_by) { %>
+    let loopCounter = 0;
+    let interval = 12;
+    (loopTimer = () => {
+      setTimeout(function() {
+        document.getElementById('auto-save-display-countdown').innerHTML = (interval - loopCounter);
+        if (loopCounter == interval) {
+          autoSaveTrigger(loopCounter);
+          document.getElementById('auto-save-display-countdown').innerHTML = ' Saved';
+          loopCounter = 0;
+        }
+        loopTimer();
+        loopCounter++;
+      }, 1000);
+    })();
+
+  <% } %>
+
+  <% if (localNodeData) { %>
+
+    const autoSaveTrigger = (params) => {
+      console.log('params');
+      console.log(params);
+
+      $.ajax({
+        url: 'http://localhost:4000/auto-save',
+        timeout: 10000,
+        type: 'post',
+        data: {
+          nid: '<%- (localNodeData) ? localNodeData.nid : "" %>',
+          contentBody: tinyMCE.activeEditor.getContent(),
+        },
+        success: function(data) {
+          //alert(data);
+          document.getElementById('revision-list').innerHTML = data;
+        },
+        error: function(request, status, err) {
+          console.log("Auto Save Error: ", err);
+        }
+      });
+    }
+  <% } %>
+
+
+  // Slack Integration
+  $(".btn-workflow-unlock").click(function () {
+    var url = 'https://hooks.slack.com/services/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'
+    var text = 'Unlock Request: Can I check in this article? http://www.todaycms.com/node/1234/edit';
+    $.ajax({
+        data: 'payload=' + JSON.stringify({
+            "text": text
+        }),
+        dataType: 'json',
+        processData: false,
+        type: 'POST',
+        url: url
+    });
+  });
+
+  $(".btn-workflow-save").click(function () {
+    $.ajax({
+      url: 'http://localhost:4000/unlock',
+      timeout: 10000,
+      type: 'post',
+      data: { nid: '<%- (localNodeData) ? localNodeData.nid : "" %>' },
+      success: function(data) {
+        alert(data);
+      },
+      error: function(request, status, err) {
+        console.log("Save Error: ", err);
+      }
+    });
+  });
+
+
+  $(".open-right-rail").click(function () {
+    $.ajax({
+      url: 'http://localhost:4000/media',
+      crossDomain: true,
+      type: 'post',
+      context: document.getElementsByClassName('sidebar-media-gallery-image')
+    }).done(function (data) {
+      //var jsonData = JSON.parse(data);
+      console.log(data);
+      //$('.' + params.contextClass).html(data);
+      $('.sidebar-media-gallery-image').html(data.imageData.html);
+      //$('ul.pagination').html(data.imageData.pageInfo);
+      //$('.rock-cms-video-grid').html(data.videoData.html);
+      //$('.' + params.contextClass + ' a').on("click", params.callBack(this));
+    });
+  });
+
+  // Send request to Vilynx to request related NBC brand video content.
+  $(function() {
+    $('#descriptionSeo').blur(function() {
+      $.ajax({
+        url: 'http://localhost:4000/helpers/vilynx-related/',
+        type: 'get',
+        timeout: 10000,
+        data: { search: $(this).val() },
+        success: function(data) {
+          $('.sidebar-media-gallery-video').html(data);
+          $('a[href="#control-sidebar-settings-tab"]').tab('show');
+          $('.open-right-rail').click();
+        },
+        error: function(request, status, err) {
+          console.log("Vilynx error: ", err);
+        }
+      });
+    });
+  });
+
+  function allowDrop(ev) {
+      ev.preventDefault();
+  }
+
+  function drag(ev) {
+      ev.dataTransfer.setData("text", ev.target.id);
+      alert(ev.target.id);
+  }
+
+  function drop(ev) {
+      ev.preventDefault();
+      var data = ev.dataTransfer.getData("text");
+      //ev.target.appendChild(document.getElementById(data));
+
+      const socket = io();
+
+      let sockData = {};
+      sockData = {
+        author: 1614,
+        user_to: 1615,
+        type: 'image_upload',
+        message: ''
+      }
+      $('#mainArt-media').attr('src', '/theme/dist/img/drag-example.jpg');
+      sockData.message = '/theme/dist/img/drag-example.jpg';
+      socket.emit('chat message', sockData);
+  }
+
+
+  </script>
+
+</body>
+
+  <% include hidden-footer %>
+ <%-hidden_dom_containers%>
+
+
+</html>

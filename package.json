@@ -1,0 +1,46 @@
+{
+  "name": "RockCMSGQL",
+  "description": "Rock CMS GraphQL Layer",
+  "main": "app.js",
+  "scripts": {
+    "dev:server": "nodemon app.js",
+    "json:server": "json-server data.json",
+    "start": "node app.js & node modules/api/bento-api.js"
+  },
+  "author": "Didarul Amin",
+  "license": "MIT",
+  "dependencies": {
+    "amazon-product-api": "^0.4.4",
+    "amqplib": "^0.5.2",
+    "axios": "^0.17.1",
+    "dotenv": "^6.0.0",
+    "ejs": "^2.6.1",
+    "express": "^4.16.3",
+    "express-fileupload": "^0.4.0",
+    "express-graphql": "^0.6.11",
+    "express-session": "^1.15.6",
+    "graphiql": "^0.11.11",
+    "graphql": "^0.12.3",
+    "gridstack": "^0.4.0",
+    "isomorphic-fetch": "^2.2.1",
+    "json-server": "^0.12.1",
+    "moment": "^2.22.2",
+    "multer": "^1.3.0",
+    "mysql": "^2.15.0",
+    "mysql2": "^1.5.1",
+    "node-fetch": "^2.1.2",
+    "nodemon": "^1.14.11",
+    "realtime-editor": "^0.5.0",
+    "request": "^2.87.0",
+    "sequelize": "^4.32.3",
+    "socket.io": "^1.7.4",
+    "table-dragger": "^1.0.2",
+    "typed-graphql": "^1.0.2",
+    "underscore": "^1.9.1",
+    "validate.js": "^0.12.0"
+  },
+  "devDependencies": {
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.12.0"
+  }
+}

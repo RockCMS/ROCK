@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title> welcome <%= title%> | My Dashboard</title>
+  <% include header %>
+</head>
+
+<body class="hold-transition skin-blue sidebar-mini">
+  <div class="wrapper">
+
+    <% include nav %>
+    <% include sidebar %>
+
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+          <!-- Content Header (Page header) -->
+          <section class="content-header">
+            <h1>
+              Dashboard
+              <small>Welcome <b><%= userData.name %></b> </small>
+            </h1>
+            <ol class="breadcrumb">
+              <li>
+                <a href="#">
+                  <i class="fa fa-dashboard"></i> Home</a>
+              </li>
+              <li class="active">Dashboard
+
+                <%- selectedSite %>
+
+              </li>
+            </ol>
+          </section>
+
+          <!-- Main content -->
+          <section class="content">
+
+
+          <!-- include dash-top-block HERE -->
+
+            <div class="row">
+              <!-- Scratchpad -->
+              <div class="col-md-4">
+                <div class="box box-info">
+                  <div class="box-header with-border">
+                    <h3 class="box-title">My Scratchpad</h3>
+                  </div>
+                  <div class="box-body no-padding">
+                    <table class="table table-striped">
+                      <th></th>
+                      <tr>
+                        <td><a href="">10:32a</a></td>
+                        <td>Democrats love unions. Just not for their own campaign workers.</td>
+                        <td><span class="btn btn-xs btn-primary">Shared</span><span class="btn btn-xs btn-success">Approved</span></td>
+                      </tr>
+                      <tr>
+                        <td><a href="">10:31a</a></td>
+                        <td>Post hoc, ergo propter hoc</td>
+                        <td><span class="btn btn-xs btn-warning">Private</span></a></td>
+                      </tr>
+<!--
+                      <tr>
+                        <td><a href="">2018-06-23 9:32 PM</a></td>
+                        <td>The Search for a Birth Family Leads to Seoul and Back Again</td>
+                        <td><span class="btn btn-xs btn-primary">Shared</span></a></td>
+                      </tr>
+                      <tr>
+                        <td><a href="">2018-06-22 2:34 PM</a></td>
+                        <td>Powerful spring storm turns deadly, blasts central U.S. with snow</td>
+                        <td><span class="btn btn-xs btn-primary">Shared</span></a></td>
+                      </tr>
+-->
+                    </table>
+                  </div>
+                </div>
+              </div>
+              <!-- ./Scratchpad -->
+              <!-- Assignments -->
+              <div class="col-md-4">
+                <div class="box box-info">
+                  <div class="box-header with-border">
+                    <h3 class="box-title">My Assignments</h3>
+                  </div>
+                  <div class="box-body no-padding">
+                    <table class="table table-striped">
+                      <th></th>
+                      <% if (typeof data.assignments != 'undefined') { %>
+                        <% Object.keys(data.assignments).forEach(task => { %>
+                          <tr>
+                            <td><span class="btn btn-xs btn-success"><%= data.assignments[task].assignmentType %></span></td>
+                            <td><%= data.assignments[task].dateModified %></td>
+                            <td><a href=""><%= data.assignments[task].title %></a><br />
+                              <% if (data.assignments[task].comment !== null) { %>
+                                <%= data.assignments[task].comment %>
+                              <% }; %>
+                              -<%= data.assignments[task].requestor %>
+                            </td>
+                          </tr>
+                          <% }); %>
+                      <% } %>
+                    </table>
+                  </div>
+                </div>
+              </div>
+              <!-- ./Assignments -->
+              <!-- Recent work -->
+              <div class="col-md-4">
+                <div class="box box-info">
+                  <div class="box-header with-border">
+                    <h3 class="box-title">Recent Work</h3>
+                  </div>
+                  <div class="box-body no-padding">
+                    <table class="table table-striped">
+                      <th></th>
+                      <tr>
+                        <td><span class="btn btn-xs btn-success">Published</span></td>
+                        <td>10:32a</td>
+                        <td><a href="">Jason Pierre-Paul posts graphic pictures of his hand as a fireworks warning</a></td>
+                      </tr>
+                      <tr>
+                        <td><span class="btn btn-xs btn-success">Published</span></td>
+                        <td>10:31a</td>
+                        <td><a href="">Poland's government forces Supreme Court judges to retire early</a></td>
+                      </tr>
+<!--
+                      <tr>
+                        <td><span class="btn btn-xs btn-default">Draft</span></td>
+                        <td>2018-06-27 6:42 PM</td>
+                        <td><a href="">Air Force veteran who set himself on fire in protest of VA dies</a></td></tr>
+                      <tr>
+                        <td><span class="btn btn-xs btn-success">Published</span></td>
+                        <td>2018-06-26 5:32 AM</td>
+                        <td><a href="">New incident near scene of Sergei Skripal attack leaves 2 critically ill</td>
+                      </tr>
+-->
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- ./Recent work -->
+
+            <!-- Main row -->
+            <div class="row col-md-12">
+
+              <!-- include dash-trending-topic HERE -->
+
+              <div class="box box-danger">
+                <form action="/" method="get">
+                  <div class="box-header with-border" id="fieldset-dashboard-search-group" data-toggle="collapse" data-target="#dashboard-advanced-search-group">
+                    <h3 class="box-title">Basic Search</h3><i class="fa fa-fw fa-chevron-down pull-right"></i>
+                  </div>
+
+                  <div class="box-body">
+                    <div class="form-group col-xs-6">
+                      <label>Title / URL</label>
+                      <input type="text" class="form-control" name="headline" value="<%= headline %>" placeholder="Enter the title search terms OR the full URL of the live content.">
+                    </div>
+
+                    <div class="form-group col-xs-2">
+                      <label>Publish Status</label>
+                      <select class="form-control select2" style="width: 100%;">
+                        <option selected="selected">Published</option>
+                        <option>Draft</option>
+                        <option>Live</option>
+                        <option>Hidden</option>
+                        <option>Unpublished</option>
+                      </select>
+                    </div>
+
+                    <div class="form-group col-xs-2">
+                      <label>&nbsp;</label>
+                      <button type="button" class="btn btn-block btn-default">RESET</button>
+                    </div>
+                    <div class="form-group col-xs-2">
+                      <label>&nbsp;</label>
+                      <button type="submit" class="btn btn-block btn-success">SEARCH</button>
+                    </div>
+
+                    <div id="dashboard-advanced-search-group" class="col-xs-12 collapse" aria-expanded="false">
+                      <div class="form-group col-xs-3">
+                        <label>Content Type</label>
+                        <select name="content_type" class="form-control select2" style="width: 100%;">
+                          <option selected="selected" value="">- Any -</option>
+                          <option value="article">Article</option>
+                          <option value="byline">Byline</option>
+                          <option value="card">Card</option>
+                          <option value="curatedlist">Curated List</option>
+                          <option value="slideshow">Slideshow</option>
+                          <option value="source">Source</option>
+                          <option value="staticpage">Static Page</option>
+                        </select>
+                      </div>
+
+                      <div class="form-group col-xs-3">
+                        <label>Article Type</label>
+                        <select class="form-control select2" style="width: 100%;">
+                          <option selected="selected">Any</option>
+                          <option>Draft</option>
+                          <option>Live</option>
+                          <option>Hidden</option>
+                          <option>Unpublished</option>
+                        </select>
+                      </div>
+
+                      <div class="form-group col-xs-3">
+                        <label>Date Range</label>
+                        <div class="input-group">
+                          <div class="input-group-addon">
+                            <i class="fa fa-calendar"></i>
+                          </div>
+                          <input type="text" class="form-control pull-right" id="reservation">
+                        </div>
+                      </div>
+
+                      <div class="form-group col-xs-3">
+                        <label>Card Type</label>
+                        <select class="form-control select2" style="width: 100%;">
+                          <option selected="selected">Any</option>
+                          <option>Draft</option>
+                          <option>Live</option>
+                          <option>Hidden</option>
+                          <option>Unpublished</option>
+                        </select>
+                      </div>
+
+                      <div class="form-group col-xs-3">
+                        <label>Section/Topic/Storyline</label>
+                        <select name="section" class="form-control select2" style="width: 100%;">
+                          <option selected="selected">Any</option>
+                        <% if(typeof sections != 'undefined') { %>
+                          <% Object.keys(sections).forEach(key => { %>
+                            <option value="<%= sections[key].id %>">
+                              <%=sections[key].name %>
+                            </option>
+                            <% }); %>
+                        <% } %>
+                        </select>
+                      </div>
+
+                      <div class="form-group col-xs-3">
+                        <label>Byline</label>
+                        <select class="form-control select2" style="width: 100%;">
+                          <option selected="selected">Any</option>
+                          <option>Draft</option>
+                          <option>Live</option>
+                          <option>Hidden</option>
+                          <option>Unpublished</option>
+                        </select>
+                      </div>
+
+                      <div class="form-group col-xs-3">
+                        <label>Copyedited</label>
+                        <select class="form-control select2" style="width: 100%;">
+                          <option selected="selected">Any</option>
+                          <option>NO</option>
+                          <option>YES</option>
+                        </select>
+                      </div>
+
+                      <div class="form-group col-xs-2">
+                        <label>Created By</label>
+                        <input type="text" class="form-control" name="author" value="" placeholder="Enter ...">
+                      </div>
+                    </div>
+                  </div>
+                  <!-- /.box-body -->
+                </form>
+              </div>
+              <!-- /.box -->
+              <div class="box">
+                <div class="box-header">
+                  <h3 class="box-title">All Recent Contents</h3>
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+                  <table id="example1" class="table table-bordered table-striped">
+                    <thead>
+                      <tr>
+                        <th>Image</th>
+                        <th>Title</th>
+                        <th>Type</th>
+                        <th>Author</th>
+                        <th>Status</th>
+                        <th>Published</th>
+                        <th>Modified</th>
+                        <th>Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                  </table>
+                </div>
+                <!-- /.box-body -->
+              </div>
+              <!-- /.box -->
+
+
+              <!-- right col -->
+            </div>
+            <!-- /.row (main row) -->
+
+          </section>
+          <!-- /.content -->
+        </div>
+        <!-- /.content-wrapper -->
+
+
+        <% include footer %>
+          <% include control-sidebar %>
+
+            <!-- Add the sidebar's background. This div must be placed
+       immediately after the control sidebar -->
+            <div class="control-sidebar-bg"></div>
+  </div>
+  <!-- ./wrapper -->
+
+  <% include footer-scripts %>
+
+
+    <script>
+      $(function () {
+
+        $("#selectSite").change(function () {
+          //alert($(this).val());
+          //var url_param = window.location.search.split("?brand=");
+          //alert(url_param[1]);
+          if ($(this).val()) {
+            location.href = '?publisher=' + $(this).val();
+          } else {
+            location.href = '/';
+          }
+
+        });
+
+        //Date range picker
+        $('#reservation').daterangepicker()
+
+        let urlQueryVal = location.search.split('?publisher=');
+        if (urlQueryVal[1]) {
+          $("#selectSite").val(urlQueryVal[1]);
+        }
+
+        $('#example1').DataTable({
+          paging: true,
+          searching: true,
+          ordering: true,
+          info: true,
+          autoWidth: true,
+          iDisplayLength: 20,
+          processing: true,
+          serverSide: true,
+          initComplete: function (settings, json) {
+            //alert( $('#example1 td:eq(4)').html() );
+            //$('#example1 td:eq(4)').html('<span class="label label-success">' + $('#example1 td:eq(4)').html() );
+          },
+          ajax: {
+            url: 'http://localhost:4000/jobyapi/' + window.location.search.split("?brand="),
+            crossDomain: true,
+            data : {uid: <%= userData.uid %>},
+            type: 'GET',
+            columns: [
+              { 'data': 'image' },
+              { 'data': 'title' },
+              { 'data': 'type' },
+              { 'data': 'user_name' },
+              { 'data': 'status' },
+              { 'data': 'published' },
+              { 'data': 'modified' },
+              { 'data': 'brand' }
+            ]
+          }
+        }).on('draw', function () {
+          $('tr td:nth-child(5)').each(function () {
+            var node_status = ($(this).html().indexOf('Published') == 0) ? 'success' : 'info';
+            $(this).html('<span class="label label-' + node_status + '">' + $(this).html() + '</span>');
+          });
+
+          $(".copy-clip-board").click(function () {
+            let link = $(this).attr('data-val');
+            $('#copy-clipboard-data-hidden').val(link);
+            var copyText = document.getElementById("copy-clipboard-data-hidden");
+            copyText.select();
+            document.execCommand("copy");
+            alert('Link copied. ' + link);
+          });
+
+        });
+
+        // Slack Integration
+        $(".assign-user-data").click(function () {
+          var url = 'https://hooks.slack.com/services/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'
+          var text = 'New Draft:' + $("#scratch-pad-title").val() + 'http://www.todaycms.com/node/1234/edit';
+          $.ajax({
+              data: 'payload=' + JSON.stringify({
+                  "text": text
+              }),
+              dataType: 'json',
+              processData: false,
+              type: 'POST',
+              url: url
+          });
+        });
+      });
+
+      $(function() {
+        $('#dashboard-advanced-search-group').on('hidden.bs.collapse', function() {
+          $('#fieldset-dashboard-search-group>h3').html('Simple Search');
+        });
+        $('#dashboard-advanced-search-group').on('show.bs.collapse', function() {
+          $('#fieldset-dashboard-search-group>h3').html('Advanced Search');
+        });
+        if ($('#dashboard-advanced-search-group').hasClass('collapse in')) {
+          $('#fieldset-dashboard-search-group>h3').html('Advanced Search');
+        } else {
+          $('#fieldset-dashboard-search-group>h3').html('Simple Search');
+        }
+      });
+
+      // Update Media Add modal title.
+      $(function() {
+        $('#modal-media-chooser').on('show.bs.modal', function(e) {
+          const nodeTitle = $(e.relatedTarget).data('node-title');
+          const nodeId = $(e.relatedTarget).data('node-id');
+          $(e.currentTarget).find('h4').text(`Add media to: ${nodeTitle}`);
+          // Populate media modal
+          $.ajax({
+            url: 'http://localhost:4000/media',
+            crossDomain: true,
+            origImgId: nodeId,
+          }).done(function (data) {
+            $('#media-chooser-content').html(data.imageData.html);
+          });
+        });
+      });
+
+      // Bind click event to media modal items to update dashboard thumbsnails.
+      $(document).ajaxComplete(function( event, xhr, settings ) {
+        if ( settings.url === 'http://localhost:4000/media' ) {
+          $('#media-chooser-content a figure img').on('click', function (ev) {
+            ev.preventDefault();
+            $('#' + settings.origImgId + '-img').attr('src', $(this).attr('src'));
+
+            const socket = io();
+            let sockData = {};
+            sockData = {
+              author: 1614,
+              user_to: 1615,
+              type: 'image_upload',
+              message: ''
+            }
+            sockData.message = $(this).attr('src');
+            socket.emit('chat message', sockData);
+
+            $('#modal-media-chooser').modal('hide');
+          });
+        }
+      });
+    </script>
+
+  <!--
+    <script src="/public/components/socket.io-client/dist/socket.io.min.js"></script>
+    <script src="/public/components/realtime-editor/realtime-editor.js"></script>
+    <script src="/public/components/realtime-editor/diff_match_patch.js"></script>
+    <script>
+      var socket = io.connect();
+
+      var textarea2 = {
+        id: 'textarea2',
+        projectId: 72,
+        room: 'project1',
+        author: '<%= userData.uid %>',
+        text: [
+
+        ],
+        custom: {
+          referenceId: 333,
+          componentId: 444
+        }
+      };
+      new realtimeEditor(textarea2);
+    </script>
+  -->
+
+
+  </body>
+  <% include hidden-footer %>
+</html>

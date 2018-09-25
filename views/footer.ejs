@@ -1,0 +1,194 @@
+  <footer class="main-footer">
+
+<label>Quick Links: &nbsp;</label>
+
+  <div class="btn-group">
+    <button type="button" class="btn btn-block btn-default">MSNBC.com</button>
+  </div>
+
+  <div class="btn-group">
+    <button type="button" class="btn btn-block btn-default">NBCNews.com</button>
+  </div>
+
+  <div class="btn-group">
+    <button type="button" class="btn btn-block btn-default">Today.com</button>
+  </div>
+
+  <div class="btn-group">
+    <button type="button" class="btn btn-block btn-default">Wire Browser</button>
+  </div>
+
+  <div class="btn-group">
+    <button type="button" class="btn btn-block btn-default">MSNBC.com</button>
+  </div>
+
+  <div class="btn-group">
+    <button type="button" class="btn btn-block btn-default">NBCNews.com</button>
+  </div>
+
+  <div class="btn-group">
+    <button type="button" class="btn btn-block btn-default">Today.com</button>
+  </div>
+
+  <div class="btn-group">
+    <button type="button" class="btn btn-block btn-default">Wire Browser</button>
+  </div>
+
+  </footer>
+
+<!-- TinyMCE -->
+<script src="/public/components/tinymce/js/tinymce/tinymce.min.js"></script>
+<script>
+    tinymce.init({
+      selector: '#scratch-pad',
+      height: 250,
+      menubar: false,
+      statusbar: false,
+      plugins: [
+          "print preview hr anchor pagebreak customstyles",
+      ],
+      toolbar1: "customstyles undo redo | forecolor backcolor | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image",
+    });
+
+  var stylelist = ['Paragraph', 'Heading', 'Body', 'Footer'];
+
+  tinymce.PluginManager.add( 'customstyles', function( editor ){
+
+    var items = [];
+
+    tinymce.each( stylelist, function( stylename ){
+      items.push({
+        text: stylename,
+        onclick: function(){
+          var content = tinyMCE.activeEditor.selection.getContent();
+          editor.insertContent( '<pre><code class="language-' + stylename + '">' + content + '</code></pre>' );
+        }
+      });
+    });
+
+    editor.addButton( 'customstyles', {
+      type: 'menubutton',
+      text: 'Custom Styles',
+      icon: 'code',
+      menu: items
+    });
+
+  });
+
+
+
+</script>
+
+  <div class="modal fade" id="modal-default">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">Scratch Pad</h4>
+        </div>
+        <div class="modal-body">
+
+          <div class="form-group">
+            <label>Title</label>
+            <input type="text" class="form-control" name="scratch-pad" id="scratch-pad-title" value=" Trump announced plans this week " placeholder="Enter ...">
+          </div>
+
+          <div class="form-group">
+            <div class="box-body pad">
+                <textarea name = "scratch-pad" id="scratch-pad" col="20" row="30">
+
+
+As Trump announced plans this week for a July summit with Russian president Vladimir Putin, our Western allies are grumbling that Trump treats them like dirt.
+
+“With friends like these,” wondered European Union president Donald Tusk, “who needs enemies?” The relationship hit another bad patch Friday when Europe slapped duties on $3.4 billion in U.S. goods in response to Trump’s tariffs on European steel and aluminum.
+
+
+
+                </textarea>
+            </div>
+          </div>
+
+<!--
+
+                <div class="realtimeWrapper">
+                  <div id="textarea2" class="realtimeEditor is-focused" style = "height: 50px; border: 1px #a29e9e solid;" ondragstart="return false" contenteditable="true" spellcheck="false">
+                    <div><br></div>
+                  </div>
+                </div>
+
+
+            <div class="form-group">
+              <form ref='uploadForm' id='uploadForm' action='/upload' method='post' encType="multipart/form-data">
+                <label for="exampleInputFile">File input</label>
+                <input type="file" id="imgUploader" name="sampleFile">
+                <button type="submit" class="btn-success">Publish</button>
+              </form>
+            </div>
+
+-->
+
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+
+          <button type="button" class="btn btn-primary">Save changes</button>
+
+
+            <div class="col-xs-3">
+                <select class="form-control select2 select2-hidden-accessible" tabindex="-1" aria-hidden="true">
+                  <option selected="selected">Select a User</option>
+                  <option>Chaz</option>
+                  <option>Kyri</option>
+                  <option>Didarul</option>
+                  <option>Rebecca</option>
+                  <option>Kim</option>
+                  <option>Rohini</option>
+                  <option>Peter</option>
+                </select>
+            </div>
+            <button type="button" class="btn btn-warning pull-left assign-user-data" data-dismiss="modal">Assign</button>
+
+          <button type="button" class="btn btn-success">Create Article</button>
+        </div>
+      </div>
+      <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+  </div>
+  <!-- /.modal -->
+</div>
+  <div class="modal fade" id="modal-media-chooser">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Select Media</h4>
+          </div>
+          <div class="modal-body">
+            <input type="hidden" id="selectedIndex" value="0" />
+            <!-- Custom Tabs -->
+            <div class="nav-tabs-custom">
+              <ul class="nav nav-tabs">
+                <li class="active"><a href="#tab_1" data-toggle="tab" class="modal-tab-image">Image</a></li>
+                <li class=""><a href="#tab_2" data-toggle="tab" class="modal-tab-video">Video</a></li>
+                <li class=""><a href="#tab_3" data-toggle="tab" class="modal-tab-upload">Upload</a></li>
+              </ul>
+              <div class="tab-content">
+                <div class="tab-pane active">
+                  <div class="rock-cms-image-grid" id="media-chooser-content"></div>
+                </div>
+              </div>
+              <!-- /.tab-content -->
+            </div>
+          </div>
+          <div class="modal-footer">
+          </div>
+        </div>
+        <!-- /.modal-content -->
+      </div>
+      <!-- /.modal-dialog -->
+  </div>
+
+

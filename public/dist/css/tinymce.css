@@ -1,0 +1,164 @@
+/*
+    Ribbons
+    Source: http://blogabill.billiouw.com/un-ruban-diagonal-en-css3-diagonal-ribbon-in-css3/
+*/
+
+@import url(https://fonts.googleapis.com/css?family=Lato);
+*{border:0;padding:0;margin:0;background:50% 50% no-repeat;text-decoration:none;color:inherit;box-sizing:border-box;font-weight:400}
+:focus{outline:0}
+b,b *,strong,strong *{font-weight:700}
+ol,ul{list-style:none}
+button,input,input:not([type]),input[type=color],input[type=text],input[type=time],input[type=url],input[type=week],input[type=button],input[type=reset],input[type=submit],input[type=date],input[type=datetime],input[type=datetime-local],input[type=email],input[type=month],input[type=number],input[type=password],input[type=search],input[type=tel],pre,select,textarea{font:inherit}
+@font-face{font-family:aileron;font-style:normal;font-weight:200;src:url(../fonts/aileron-ultra-light.eot?#iefix) format("embedded-opentype"),url(../fonts/aileron-ultra-light.woff) format("woff"),url(../fonts/aileron-ultra-light.ttf) format("truetype")}
+.codepen body{margin:10px 0 0}
+.codepen body textarea{display:none}
+.mce-container textarea{display:inline-block!important}
+.mce-content-body{font-family:Lato!important;font-size:14px;color:#626262;padding:0 25px 25px}
+.mce-content-body h1,.mce-content-body h2,.mce-content-body h3,.mce-content-body h4,.mce-content-body h5,.mce-content-body h6{font-family:aileron;font-weight:200;line-height:1.4em;margin:25px 0 15px}
+.mce-content-body *{background-position:initial}
+.mce-content-body h1{font-size:34px}
+.mce-content-body h2{font-size:30px}
+.mce-content-body h3{font-size:26px}
+.mce-content-body h4{font-size:22px}
+.mce-content-body h5{font-size:18px}
+.mce-content-body h6{font-size:14px}
+.mce-content-body p{margin:25px 0}
+.mce-content-body ol,.mce-content-body ul{margin-left:15px;list-style-position:outside;margin-bottom:20px}
+.mce-content-body ol li,.mce-content-body ul li{margin-left:10px;margin-bottom:10px;color:#626262}
+.mce-content-body ul{list-style-type:disc}
+.mce-content-body ol{list-style-type:decimal}
+.mce-content-body a[href]{text-decoration:underline}
+.mce-content-body table{width:100%;border-spacing:0;border-collapse:separate;border:1px solid #aaa}
+.mce-content-body table tr:nth-child(even){background:#FAFAFA}
+.mce-content-body table caption,.mce-content-body table td,.mce-content-body table th{padding:15px 7px;font:inherit}
+.mce-content-body table td,.mce-content-body table th{border:1px solid #aaa;border-collapse:collapse}
+.mce-content-body table th{font-weight:400;color:#6E6E6E;background-position:100% 100%;background-size:2px 10px;background-repeat:no-repeat}
+.mce-content-body table th:last-child{background:0 0}
+.mce-content-body hr{border-top:2px solid #BBB}
+
+.mycustomwrapper {
+  margin: 50px auto;
+  padding: 10px;
+  width: 280px;
+  min-height: 100px;
+  background: white;
+  border-radius: 10px;
+  -webkit-box-shadow: 0px 0px 8px rgba(0,0,0,0.3);
+  -moz-box-shadow:    0px 0px 8px rgba(0,0,0,0.3);
+  box-shadow:         0px 0px 8px rgba(0,0,0,0.3);
+  position: relative;
+  z-index: 90;
+}
+
+.ribbon-wrapper {
+    width: 85px;
+    height: 88px;
+    overflow: hidden;
+    position: absolute;
+    top: -3px;
+    right: -3px;
+}
+
+.ribbon {
+    font: bold 12px Sans-Serif;
+    color: #333;
+    text-align: center;
+    text-shadow: rgba(255,255,255,0.5) 0px 1px 0px;
+    -webkit-transform: rotate(45deg);
+    -moz-transform:    rotate(45deg);
+    -ms-transform:     rotate(45deg);
+    -o-transform:      rotate(45deg);
+    position: relative;
+    padding: 7px 0;
+    left: -5px;
+    top: 15px;
+    width: 120px;
+    -webkit-box-shadow: 0px 0px 3px rgba(0,0,0,0.3);
+    -moz-box-shadow:    0px 0px 3px rgba(0,0,0,0.3);
+    box-shadow:         0px 0px 3px rgba(0,0,0,0.3);
+}
+
+.ribbon:before, .ribbon:after {
+    content: "";
+    border-left:  3px solid transparent;
+    border-right: 3px solid transparent;
+    position:absolute;
+    bottom: -3px;
+}
+
+.ribbon:before {
+    left: 0;
+}
+.ribbon:after {
+    right: 0;
+}
+
+.ribbon.green:before, .ribbon.green:after {
+    border-top:   3px solid #6e8900;
+}
+
+.ribbon.green {
+    background-color: #BFDC7A;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#BFDC7A), to(#8EBF45));
+    background-image: -webkit-linear-gradient(top, #BFDC7A, #8EBF45);
+    background-image:    -moz-linear-gradient(top, #BFDC7A, #8EBF45);
+    background-image:     -ms-linear-gradient(top, #BFDC7A, #8EBF45);
+    background-image:      -o-linear-gradient(top, #BFDC7A, #8EBF45);
+    color: #6a6340;
+}
+
+.ribbon.red:before, .ribbon.red:after {
+    border-top:   3px solid #CC0000;
+}
+
+.ribbon.red {
+    background-color: #ff524f;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#ff524f), to(#FF050F));
+    background-image: -webkit-linear-gradient(top, #ff524f, #FF050F);
+    background-image:    -moz-linear-gradient(top, #ff524f, #FF050F);
+    background-image:     -ms-linear-gradient(top, #ff524f, #FF050F);
+    background-image:      -o-linear-gradient(top, #ff524f, #FF050F);
+    color: #fff;
+}
+
+.ribbon.blue:before, .ribbon.blue:after {
+    border-top:   3px solid #CC0000;
+}
+
+.ribbon.blue {
+    background-color: #ADDDE7;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#BFDC7A), to(#8EBF45));
+    background-image: -webkit-linear-gradient(top, #ADDDE7, #89AFB7);
+    background-image:    -moz-linear-gradient(top, #ADDDE7, #89AFB7);
+    background-image:     -ms-linear-gradient(top, #ADDDE7, #89AFB7);
+    background-image:      -o-linear-gradient(top, #ADDDE7, #89AFB7);
+    color: #6a6340;
+}
+
+/* Tooltip container */
+.tooltip {
+  position: relative;
+  display: inline-block;
+  color: #e3ac2a;
+  border-bottom: 2px dotted #e3ac2a; /* If you want dots under the hoverable text */
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: #5f7bab;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    /* Position the tooltip text - see examples below! */
+    position: absolute;
+    z-index: 1;
+    padding: 5px;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}

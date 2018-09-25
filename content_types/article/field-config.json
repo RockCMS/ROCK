@@ -1,0 +1,1316 @@
+[
+  {
+    "inputType": "fieldGroup",
+    "name": "Headline Group",
+    "label": "SEO, description, and deck",
+    "helpText": "",
+    "brands": {
+      "nbcnews": true,
+      "today": false
+    },
+    "settings": {
+      "collapseTarget": "headline-group-collapse",
+      "collapsed": true
+    },
+    "transform": {
+      "send": "true",
+      "type": "text"
+    },
+    "validation": {
+      "presence": true
+    },
+    "fields": {
+      "GR 1": {
+        "inputType": "inputTextField",
+        "title": "Primary Headline",
+        "name": "headlinePrimary",
+        "id": "headlinePrimary",
+        "label": "",
+        "helpText": "",
+        "class": "headline-group-collapse",
+        "brands": {
+          "nbcnews": true,
+          "today": false,
+          "msnbc": true
+        },
+        "settings": {
+          "collapsed": true
+        },
+        "transform": {
+          "send": "true",
+          "type": "text"
+        },
+        "validation": {
+          "presence": true,
+          "length": {
+            "minimum": 3,
+            "maximum": 20
+          },
+          "format": {
+            "pattern": "[A-Za-z0-9]+",
+            "flags": "i",
+            "message": "SOOOOO can only contain a-z and 0-9"
+          }
+        }
+      },
+      "GR 2": {
+        "inputType": "inputTextField",
+        "title": "SEO Headline",
+        "name": "headlineSeo",
+        "id": "headlineSeo",
+        "label": "",
+        "helpText": "This value is used to promote content on search engines.",
+        "class": "headline-group-collapse",
+        "brands": {
+          "nbcnews": true,
+          "today": false,
+          "msnbc": true
+        },
+        "settings": {
+          "collapsed": true,
+          "dataShadow": "#headlinePrimary"
+        },
+        "transform": {
+          "send": "true",
+          "type": "text"
+        },
+        "validation": {
+          "presence": true,
+          "length": {
+            "minimum": 3,
+            "maximum": 20
+          },
+          "format": {
+            "pattern": "[A-Za-z0-9]+",
+            "flags": "i",
+            "message": "SOOOOO can only contain a-z and 0-9"
+          }
+        }
+      },
+      "GR 3": {
+        "inputType": "inputTextField",
+        "title": "Social Headline",
+        "name": "headlineSocial",
+        "id": "headlineSocial",
+        "label": "",
+        "helpText": "This headline is used in share links and can be customized for greater impact.",
+        "class": "headline-group-collapse",
+        "brands": {
+          "nbcnews": true,
+          "today": false,
+          "msnbc": true
+        },
+        "settings": {
+          "collapsed": true,
+          "dataShadow": "#headlinePrimary"
+        },
+        "transform": {
+          "send": "true",
+          "type": "text"
+        },
+        "validation": {
+          "presence": true,
+          "length": {
+            "minimum": 3,
+            "maximum": 20
+          },
+          "format": {
+            "pattern": "[A-Za-z0-9]+",
+            "flags": "i",
+            "message": "SOOOOO can only contain a-z and 0-9"
+          }
+        }
+      },
+      "GR 4": {
+        "inputType": "inputTextField",
+        "title": "SEO Description",
+        "name": "descriptionSeo",
+        "id": "descriptionSeo",
+        "label": "",
+        "helpText": "This description is used within search pages as the abstract.",
+        "class": "headline-group-collapse",
+        "brands": {
+          "nbcnews": true,
+          "today": false,
+          "msnbc": true
+        },
+        "settings": {
+          "collapsed": true
+        },
+        "transform": {
+          "send": "true",
+          "type": "text"
+        },
+        "validation": {
+          "presence": true,
+          "length": {
+            "minimum": 3,
+            "maximum": 20
+          },
+          "format": {
+            "pattern": "[A-Za-z0-9]+",
+            "flags": "i",
+            "message": "SOOOOO can only contain a-z and 0-9"
+          }
+        }
+      },
+      "GR 5": {
+        "inputType": "inputTextField",
+        "title": "Primary Description",
+        "name": "descriptionPrimary",
+        "id": "descriptionPrimary",
+        "label": "",
+        "helpText": "This text is used on teasers and related article blocks.",
+        "class": "headline-group-collapse",
+        "brands": {
+          "nbcnews": true,
+          "today": false,
+          "msnbc": true
+        },
+        "settings": {
+          "collapsed": true
+        },
+        "transform": {
+          "send": "true",
+          "type": "text"
+        },
+        "validation": {
+          "presence": true,
+          "length": {
+            "minimum": 3,
+            "maximum": 20
+          },
+          "format": {
+            "pattern": "[A-Za-z0-9]+",
+            "flags": "i",
+            "message": "SOOOOO can only contain a-z and 0-9"
+          }
+        }
+      },
+      "GR 6": {
+        "inputType": "inputTextField",
+        "title": "Deck",
+        "name": "deck",
+        "id": "deck",
+        "label": "",
+        "helpText": "This text is shown when content is featured on verticals fronts.",
+        "class": "headline-group-collapse",
+        "brands": {
+          "nbcnews": true,
+          "today": false,
+          "msnbc": true
+        },
+        "settings": {
+          "collapsed": true
+        },
+        "transform": {
+          "send": "true",
+          "type": "text"
+        },
+        "validation": {
+          "presence": true,
+          "length": {
+            "minimum": 3,
+            "maximum": 20
+          },
+          "format": {
+            "pattern": "[A-Za-z0-9]+",
+            "flags": "i",
+            "message": "SOOOOO can only contain a-z and 0-9"
+          }
+        }
+      }
+    }
+  },
+  {
+    "inputType": "fieldGroup",
+    "name": "Metadata Group",
+    "label": "",
+    "helpText": "",
+    "brands": {
+      "nbcnews": true,
+      "today": false,
+      "msnbc": true
+    },
+    "settings": {
+      "collapseTarget": "metadata-group-collapse",
+      "collapsed": true
+    },
+    "transform": {
+      "send": "true",
+      "type": "text"
+    },
+    "validation": {
+      "presence": true
+    },
+    "fields": {
+      "TaxSection": {
+        "inputType": "inputListField",
+        "title": "Sections",
+        "name": "taxonomySections",
+        "id": "taxonomySections",
+        "label": "",
+        "helpText": "The section is used for categorization and filtering content on fronts",
+        "class": "taxonomySections metadata-group-collapse",
+        "brands": {
+          "nbcnews": true,
+          "today": false,
+          "msnbc": true
+        },
+        "list_values": {
+          "nctx19666": "Better",
+          "nctx77": "Business",
+          "nctx19359": "Dateline Detective",
+          "nctx19136": "Education Nation",
+          "nctx20181": "Feature",
+          "nctx19081": "Flashback",
+          "nctx18446": "Guides",
+          "nctx65": "Health"
+        },
+        "settings": {
+          "collapsed": true
+        },
+        "transform": {
+          "send": "true",
+          "type": "text"
+        },
+        "validation": {
+          "presence": true,
+          "length": {
+            "minimum": 3,
+            "maximum": 20
+          },
+          "format": {
+            "pattern": "[A-Za-z0-9]+",
+            "flags": "i",
+            "message": "SOOOOO can only contain a-z and 0-9"
+          }
+        }
+      },
+      "TaxTopic": {
+        "inputType": "inputListField",
+        "title": "Topics",
+        "name": "taxonomyTopics",
+        "id": "taxonomyTopics",
+        "label": "",
+        "helpText": "The topic is used for categorization and filtering content on fronts",
+        "class": "taxonomyTopics metadata-group-collapse",
+        "brands": {
+          "nbcnews": true,
+          "today": false,
+          "msnbc": true
+        },
+        "list_values": {
+          "nxtx54": "Africa",
+          "nxtx4": "Aging",
+          "nxtx41": "Allergies",
+          "nxtx17736": "Apple",
+          "nxtx18451": "Article",
+          "nxtx42": "Asia",
+          "nxtx17706": "Asian America",
+          "nxtx48": "Autos",
+          "nxtx33": "Awards",
+          "nxtx17746": "Barack Obama",
+          "nxtx74": "Body Odd",
+          "nxtx78": "Books",
+          "nxtx18601": "Boot Camp",
+          "nxtx20496": "Briefing",
+          "nxtx44": "Business News",
+          "nxtx18586": "Camera Sound Lighting",
+          "nxtx60": "Cancer",
+          "nxtx43": "Celebrity",
+          "nxtx49": "China",
+          "nxtx69": "City &amp; State",
+          "nxtx18776": "Class of 2016 Profiles",
+          "nxtx34": "Cold and Flu",
+          "nxtx19046": "College 101",
+          "nxtx18796": "College Game Plan",
+          "nxtx37": "Congress",
+          "nxtx29": "Consumer",
+          "nxtx17536": "Corrections",
+          "nxtx19716": "Corrections",
+          "nxtx27": "Diabetes",
+          "nxtx19601": "Donald Trump",
+          "nxtx19036": "Dorm Room CEO",
+          "nxtx39": "Economy",
+          "nxtx25": "Education",
+          "nxtx24": "Elections",
+          "nxtx88": "Energy",
+          "nxtx19506": "Environment",
+          "nxtx51": "Environment",
+          "nxtx47": "Europe",
+          "nxtx19236": "Facebook Instant Article",
+          "nxtx20186": "Feature",
+          "nxtx20056": "Features",
+          "nxtx19511": "Features",
+          "nxtx63": "First Read",
+          "nxtx81": "Gadgets",
+          "nxtx17581": "Gift Guide",
+          "nxtx20316": "Harvey Weinstein Scandal",
+          "nxtx68": "Health Care",
+          "nxtx62": "Health news",
+          "nxtx9": "Heart Health",
+          "nxtx17751": "Hillary Clinton",
+          "nxtx19766": "How I Got In",
+          "nxtx17741": "Immigration",
+          "nxtx17716": "India",
+          "nxtx11": "Innovation",
+          "nxtx19516": "Innovation",
+          "nxtx56": "Internet",
+          "nxtx70": "Investigations",
+          "nxtx17756": "John Boehner",
+          "nxtx36": "Justice Department",
+          "nxtx58": "Kids' Health",
+          "nxtx59": "Know it All",
+          "nxtx20": "Latin America",
+          "nxtx53": "Latino",
+          "nxtx17351": "Lifestyle",
+          "nxtx19741": "Lifestyle",
+          "nxtx52": "Markets",
+          "nxtx18591": "Media Central",
+          "nxtx18181": "Meet the Voters",
+          "nxtx14": "Men's Health",
+          "nxtx1": "Mental Health",
+          "nxtx17721": "Mexico",
+          "nxtx26": "Mideast",
+          "nxtx16": "Military",
+          "nxtx17": "Mobile",
+          "nxtx91": "Movies",
+          "nxtx21": "Music",
+          "nxtx55": "National Security",
+          "nxtx19181": "NBC Out &amp; Proud",
+          "nxtx18276": "NBCBLK",
+          "nxtx18581": "Newsconnect",
+          "nxtx17711": "North Korea",
+          "nxtx17731": "Obamacare",
+          "nxtx20521": "Obituaries",
+          "nxtx19336": "Olympics",
+          "nxtx19931": "One Small Thing",
+          "nxtx20176": "Opinion",
+          "nxtx19206": "OUT Community Voices",
+          "nxtx19196": "OUT Health and Wellness",
+          "nxtx19191": "OUT Life and Style",
+          "nxtx19211": "OUT News",
+          "nxtx19186": "OUT Politics and Policy",
+          "nxtx19201": "OUT Pop Culture",
+          "nxtx20196": "Paid Content",
+          "nxtx19746": "Parenting",
+          "nxtx17346": "Parenting",
+          "nxtx18191": "Paul Ryan",
+          "nxtx67": "Photo",
+          "nxtx18": "Politics News",
+          "nxtx32": "Pop Culture News",
+          "nxtx17726": "Pope Francis",
+          "nxtx18186": "Rand Paul",
+          "nxtx61": "Real Estate",
+          "nxtx35": "Religion",
+          "nxtx87": "Retirement",
+          "nxtx19521": "Science",
+          "nxtx2": "Science News",
+          "nxtx38": "Security",
+          "nxtx85": "Sexual Health",
+          "nxtx86": "Social Media",
+          "nxtx18576": "Social Platforms",
+          "nxtx19526": "Space",
+          "nxtx83": "Space",
+          "nxtx20076": "Specials",
+          "nxtx17441": "Sports",
+          "nxtx19056": "Sports",
+          "nxtx19041": "Student Bodies",
+          "nxtx12": "Supreme Court",
+          "nxtx3": "Taxes",
+          "nxtx84": "Tech News",
+          "nxtx19531": "Technology",
+          "nxtx19991": "The Big Questions",
+          "nxtx13": "Travel",
+          "nxtx82": "TV",
+          "nxtx66": "U.S. news",
+          "nxtx20026": "Velshi &amp; Ruhle",
+          "nxtx5": "Veterans",
+          "nxtx30": "Video",
+          "nxtx92": "Video Games",
+          "nxtx10": "Viral",
+          "nxtx18196": "Vladimir Putin",
+          "nxtx28": "Weather",
+          "nxtx19721": "Week in Pictures",
+          "nxtx90": "Weird News",
+          "nxtx45": "Weird Science",
+          "nxtx80": "White House",
+          "nxtx19031": "Why I Chose",
+          "nxtx18771": "Winning the Waiting Game",
+          "nxtx72": "Women's Health",
+          "nxtx8": "World",
+          "nxtx18596": "Writing",
+          "nxtx20021": "Your Business"
+        },
+        "settings": {
+          "collapsed": true
+        },
+        "multiselect": false,
+        "transform": {
+          "send": "true",
+          "type": "text"
+        },
+        "validation": {
+          "presence": true,
+          "length": {
+            "minimum": 3,
+            "maximum": 20
+          },
+          "format": {
+            "pattern": "[A-Za-z0-9]+",
+            "flags": "i",
+            "message": "SOOOOO can only contain a-z and 0-9"
+          }
+        }
+      },
+      "TaxSubtopic": {
+        "inputType": "inputListField",
+        "title": "Sub-topics",
+        "name": "taxonomySubtopics",
+        "id": "taxonomySubtopics",
+        "label": "",
+        "helpText": "The sub-topic is used for categorization and filtering content on fronts",
+        "class": "taxonomySubtopics metadata-group-collapse",
+        "brands": {
+          "nbcnews": true,
+          "today": false,
+          "msnbc": true
+        },
+        "list_values": {
+          "nxtx54": "Africa",
+          "nxtx4": "Aging",
+          "nxtx41": "Allergies",
+          "nxtx17736": "Apple",
+          "nxtx18451": "Article",
+          "nxtx42": "Asia",
+          "nxtx17706": "Asian America",
+          "nxtx48": "Autos",
+          "nxtx33": "Awards",
+          "nxtx17746": "Barack Obama",
+          "nxtx74": "Body Odd",
+          "nxtx78": "Books",
+          "nxtx18601": "Boot Camp",
+          "nxtx20496": "Briefing",
+          "nxtx44": "Business News",
+          "nxtx18586": "Camera Sound Lighting",
+          "nxtx60": "Cancer",
+          "nxtx43": "Celebrity",
+          "nxtx49": "China",
+          "nxtx69": "City &amp; State",
+          "nxtx18776": "Class of 2016 Profiles",
+          "nxtx34": "Cold and Flu",
+          "nxtx19046": "College 101",
+          "nxtx18796": "College Game Plan",
+          "nxtx37": "Congress",
+          "nxtx29": "Consumer",
+          "nxtx17536": "Corrections",
+          "nxtx19716": "Corrections",
+          "nxtx27": "Diabetes",
+          "nxtx19601": "Donald Trump",
+          "nxtx19036": "Dorm Room CEO",
+          "nxtx39": "Economy",
+          "nxtx25": "Education",
+          "nxtx24": "Elections",
+          "nxtx88": "Energy",
+          "nxtx19506": "Environment",
+          "nxtx51": "Environment",
+          "nxtx47": "Europe",
+          "nxtx19236": "Facebook Instant Article",
+          "nxtx20186": "Feature",
+          "nxtx20056": "Features",
+          "nxtx19511": "Features",
+          "nxtx63": "First Read",
+          "nxtx81": "Gadgets",
+          "nxtx17581": "Gift Guide",
+          "nxtx20316": "Harvey Weinstein Scandal",
+          "nxtx68": "Health Care",
+          "nxtx62": "Health news",
+          "nxtx9": "Heart Health",
+          "nxtx17751": "Hillary Clinton",
+          "nxtx19766": "How I Got In",
+          "nxtx17741": "Immigration",
+          "nxtx17716": "India",
+          "nxtx11": "Innovation",
+          "nxtx19516": "Innovation",
+          "nxtx56": "Internet",
+          "nxtx70": "Investigations",
+          "nxtx17756": "John Boehner",
+          "nxtx36": "Justice Department",
+          "nxtx58": "Kids' Health",
+          "nxtx59": "Know it All",
+          "nxtx20": "Latin America",
+          "nxtx53": "Latino",
+          "nxtx17351": "Lifestyle",
+          "nxtx19741": "Lifestyle",
+          "nxtx52": "Markets",
+          "nxtx18591": "Media Central",
+          "nxtx18181": "Meet the Voters",
+          "nxtx14": "Men's Health",
+          "nxtx1": "Mental Health",
+          "nxtx17721": "Mexico",
+          "nxtx26": "Mideast",
+          "nxtx16": "Military",
+          "nxtx17": "Mobile",
+          "nxtx91": "Movies",
+          "nxtx21": "Music",
+          "nxtx55": "National Security",
+          "nxtx19181": "NBC Out &amp; Proud",
+          "nxtx18276": "NBCBLK",
+          "nxtx18581": "Newsconnect",
+          "nxtx17711": "North Korea",
+          "nxtx17731": "Obamacare",
+          "nxtx20521": "Obituaries",
+          "nxtx19336": "Olympics",
+          "nxtx19931": "One Small Thing",
+          "nxtx20176": "Opinion",
+          "nxtx19206": "OUT Community Voices",
+          "nxtx19196": "OUT Health and Wellness",
+          "nxtx19191": "OUT Life and Style",
+          "nxtx19211": "OUT News",
+          "nxtx19186": "OUT Politics and Policy",
+          "nxtx19201": "OUT Pop Culture",
+          "nxtx20196": "Paid Content",
+          "nxtx19746": "Parenting",
+          "nxtx17346": "Parenting",
+          "nxtx18191": "Paul Ryan",
+          "nxtx67": "Photo",
+          "nxtx18": "Politics News",
+          "nxtx32": "Pop Culture News",
+          "nxtx17726": "Pope Francis",
+          "nxtx18186": "Rand Paul",
+          "nxtx61": "Real Estate",
+          "nxtx35": "Religion",
+          "nxtx87": "Retirement",
+          "nxtx19521": "Science",
+          "nxtx2": "Science News",
+          "nxtx38": "Security",
+          "nxtx85": "Sexual Health",
+          "nxtx86": "Social Media",
+          "nxtx18576": "Social Platforms",
+          "nxtx19526": "Space",
+          "nxtx83": "Space",
+          "nxtx20076": "Specials",
+          "nxtx17441": "Sports",
+          "nxtx19056": "Sports",
+          "nxtx19041": "Student Bodies",
+          "nxtx12": "Supreme Court",
+          "nxtx3": "Taxes",
+          "nxtx84": "Tech News",
+          "nxtx19531": "Technology",
+          "nxtx19991": "The Big Questions",
+          "nxtx13": "Travel",
+          "nxtx82": "TV",
+          "nxtx66": "U.S. news",
+          "nxtx20026": "Velshi &amp; Ruhle",
+          "nxtx5": "Veterans",
+          "nxtx30": "Video",
+          "nxtx92": "Video Games",
+          "nxtx10": "Viral",
+          "nxtx18196": "Vladimir Putin",
+          "nxtx28": "Weather",
+          "nxtx19721": "Week in Pictures",
+          "nxtx90": "Weird News",
+          "nxtx45": "Weird Science",
+          "nxtx80": "White House",
+          "nxtx19031": "Why I Chose",
+          "nxtx18771": "Winning the Waiting Game",
+          "nxtx72": "Women's Health",
+          "nxtx8": "World",
+          "nxtx18596": "Writing",
+          "nxtx20021": "Your Business"
+        },
+        "settings": {
+          "collapsed": true
+        },
+        "multiselect": false,
+        "transform": {
+          "send": "true",
+          "type": "text"
+        },
+        "validation": {
+          "presence": true,
+          "length": {
+            "minimum": 3,
+            "maximum": 20
+          },
+          "format": {
+            "pattern": "[A-Za-z0-9]+",
+            "flags": "i",
+            "message": "SOOOOO can only contain a-z and 0-9"
+          }
+        }
+      },
+      "TaxLinkedSection": {
+        "inputType": "inputListField",
+        "title": "Additional Sections",
+        "name": "taxonomyLinkedSections",
+        "id": "taxonomyLinkedSections",
+        "label": "",
+        "helpText": "The section is used for categorization and filtering content on fronts",
+        "class": "taxonomySections metadata-group-collapse",
+        "brands": {
+          "nbcnews": true,
+          "today": false,
+          "msnbc": true
+        },
+        "list_values": {
+          "nctx19666": "Better",
+          "nctx77": "Business",
+          "nctx19359": "Dateline Detective",
+          "nctx19136": "Education Nation",
+          "nctx20181": "Feature",
+          "nctx19081": "Flashback",
+          "nctx18446": "Guides",
+          "nctx65": "Health"
+        },
+        "settings": {
+          "collapsed": true
+        },
+        "multiselect": true,
+        "transform": {
+          "send": "true",
+          "type": "text"
+        },
+        "validation": {
+          "presence": true,
+          "length": {
+            "minimum": 3,
+            "maximum": 20
+          },
+          "format": {
+            "pattern": "[A-Za-z0-9]+",
+            "flags": "i",
+            "message": "SOOOOO can only contain a-z and 0-9"
+          }
+        }
+      },
+      "TaxLinkedTopic": {
+        "inputType": "inputListField",
+        "title": "Additional Topics",
+        "name": "taxonomyLinkedTopics",
+        "id": "taxonomyLinkedTopics",
+        "label": "",
+        "helpText": "The topic is used for categorization and filtering content on fronts",
+        "class": "taxonomyTopics metadata-group-collapse",
+        "brands": {
+          "nbcnews": true,
+          "today": false,
+          "msnbc": true
+        },
+        "list_values": {
+          "nxtx54": "Africa",
+          "nxtx4": "Aging",
+          "nxtx41": "Allergies",
+          "nxtx17736": "Apple",
+          "nxtx18451": "Article",
+          "nxtx42": "Asia",
+          "nxtx17706": "Asian America",
+          "nxtx48": "Autos",
+          "nxtx33": "Awards",
+          "nxtx17746": "Barack Obama",
+          "nxtx74": "Body Odd",
+          "nxtx78": "Books",
+          "nxtx18601": "Boot Camp",
+          "nxtx20496": "Briefing",
+          "nxtx44": "Business News",
+          "nxtx18586": "Camera Sound Lighting",
+          "nxtx60": "Cancer",
+          "nxtx43": "Celebrity",
+          "nxtx49": "China",
+          "nxtx69": "City &amp; State",
+          "nxtx18776": "Class of 2016 Profiles",
+          "nxtx34": "Cold and Flu",
+          "nxtx19046": "College 101",
+          "nxtx18796": "College Game Plan",
+          "nxtx37": "Congress",
+          "nxtx29": "Consumer",
+          "nxtx17536": "Corrections",
+          "nxtx19716": "Corrections",
+          "nxtx27": "Diabetes",
+          "nxtx19601": "Donald Trump",
+          "nxtx19036": "Dorm Room CEO",
+          "nxtx39": "Economy",
+          "nxtx25": "Education",
+          "nxtx24": "Elections",
+          "nxtx88": "Energy",
+          "nxtx19506": "Environment",
+          "nxtx51": "Environment",
+          "nxtx47": "Europe",
+          "nxtx19236": "Facebook Instant Article",
+          "nxtx20186": "Feature",
+          "nxtx20056": "Features",
+          "nxtx19511": "Features",
+          "nxtx63": "First Read",
+          "nxtx81": "Gadgets",
+          "nxtx17581": "Gift Guide",
+          "nxtx20316": "Harvey Weinstein Scandal",
+          "nxtx68": "Health Care",
+          "nxtx62": "Health news",
+          "nxtx9": "Heart Health",
+          "nxtx17751": "Hillary Clinton",
+          "nxtx19766": "How I Got In",
+          "nxtx17741": "Immigration",
+          "nxtx17716": "India",
+          "nxtx11": "Innovation",
+          "nxtx19516": "Innovation",
+          "nxtx56": "Internet",
+          "nxtx70": "Investigations",
+          "nxtx17756": "John Boehner",
+          "nxtx36": "Justice Department",
+          "nxtx58": "Kids' Health",
+          "nxtx59": "Know it All",
+          "nxtx20": "Latin America",
+          "nxtx53": "Latino",
+          "nxtx17351": "Lifestyle",
+          "nxtx19741": "Lifestyle",
+          "nxtx52": "Markets",
+          "nxtx18591": "Media Central",
+          "nxtx18181": "Meet the Voters",
+          "nxtx14": "Men's Health",
+          "nxtx1": "Mental Health",
+          "nxtx17721": "Mexico",
+          "nxtx26": "Mideast",
+          "nxtx16": "Military",
+          "nxtx17": "Mobile",
+          "nxtx91": "Movies",
+          "nxtx21": "Music",
+          "nxtx55": "National Security",
+          "nxtx19181": "NBC Out &amp; Proud",
+          "nxtx18276": "NBCBLK",
+          "nxtx18581": "Newsconnect",
+          "nxtx17711": "North Korea",
+          "nxtx17731": "Obamacare",
+          "nxtx20521": "Obituaries",
+          "nxtx19336": "Olympics",
+          "nxtx19931": "One Small Thing",
+          "nxtx20176": "Opinion",
+          "nxtx19206": "OUT Community Voices",
+          "nxtx19196": "OUT Health and Wellness",
+          "nxtx19191": "OUT Life and Style",
+          "nxtx19211": "OUT News",
+          "nxtx19186": "OUT Politics and Policy",
+          "nxtx19201": "OUT Pop Culture",
+          "nxtx20196": "Paid Content",
+          "nxtx19746": "Parenting",
+          "nxtx17346": "Parenting",
+          "nxtx18191": "Paul Ryan",
+          "nxtx67": "Photo",
+          "nxtx18": "Politics News",
+          "nxtx32": "Pop Culture News",
+          "nxtx17726": "Pope Francis",
+          "nxtx18186": "Rand Paul",
+          "nxtx61": "Real Estate",
+          "nxtx35": "Religion",
+          "nxtx87": "Retirement",
+          "nxtx19521": "Science",
+          "nxtx2": "Science News",
+          "nxtx38": "Security",
+          "nxtx85": "Sexual Health",
+          "nxtx86": "Social Media",
+          "nxtx18576": "Social Platforms",
+          "nxtx19526": "Space",
+          "nxtx83": "Space",
+          "nxtx20076": "Specials",
+          "nxtx17441": "Sports",
+          "nxtx19056": "Sports",
+          "nxtx19041": "Student Bodies",
+          "nxtx12": "Supreme Court",
+          "nxtx3": "Taxes",
+          "nxtx84": "Tech News",
+          "nxtx19531": "Technology",
+          "nxtx19991": "The Big Questions",
+          "nxtx13": "Travel",
+          "nxtx82": "TV",
+          "nxtx66": "U.S. news",
+          "nxtx20026": "Velshi &amp; Ruhle",
+          "nxtx5": "Veterans",
+          "nxtx30": "Video",
+          "nxtx92": "Video Games",
+          "nxtx10": "Viral",
+          "nxtx18196": "Vladimir Putin",
+          "nxtx28": "Weather",
+          "nxtx19721": "Week in Pictures",
+          "nxtx90": "Weird News",
+          "nxtx45": "Weird Science",
+          "nxtx80": "White House",
+          "nxtx19031": "Why I Chose",
+          "nxtx18771": "Winning the Waiting Game",
+          "nxtx72": "Women's Health",
+          "nxtx8": "World",
+          "nxtx18596": "Writing",
+          "nxtx20021": "Your Business"
+        },
+        "settings": {
+          "collapsed": true
+        },
+        "multiselect": true,
+        "transform": {
+          "send": "true",
+          "type": "text"
+        },
+        "validation": {
+          "presence": true,
+          "length": {
+            "minimum": 3,
+            "maximum": 20
+          },
+          "format": {
+            "pattern": "[A-Za-z0-9]+",
+            "flags": "i",
+            "message": "SOOOOO can only contain a-z and 0-9"
+          }
+        }
+      },
+      "TaxLinkedSubtopic": {
+        "inputType": "inputListField",
+        "title": "Additional Sub-topics",
+        "name": "taxonomyLinkedSubtopics",
+        "id": "taxonomyLinkedSubtopics",
+        "label": "",
+        "helpText": "The sub-topic is used for categorization and filtering content on fronts",
+        "class": "taxonomySubtopics metadata-group-collapse",
+        "brands": {
+          "nbcnews": true,
+          "today": false,
+          "msnbc": true
+        },
+        "list_values": {
+          "nxtx54": "Africa",
+          "nxtx4": "Aging",
+          "nxtx41": "Allergies",
+          "nxtx17736": "Apple",
+          "nxtx18451": "Article",
+          "nxtx42": "Asia",
+          "nxtx17706": "Asian America",
+          "nxtx48": "Autos",
+          "nxtx33": "Awards",
+          "nxtx17746": "Barack Obama",
+          "nxtx74": "Body Odd",
+          "nxtx78": "Books",
+          "nxtx18601": "Boot Camp",
+          "nxtx20496": "Briefing",
+          "nxtx44": "Business News",
+          "nxtx18586": "Camera Sound Lighting",
+          "nxtx60": "Cancer",
+          "nxtx43": "Celebrity",
+          "nxtx49": "China",
+          "nxtx69": "City &amp; State",
+          "nxtx18776": "Class of 2016 Profiles",
+          "nxtx34": "Cold and Flu",
+          "nxtx19046": "College 101",
+          "nxtx18796": "College Game Plan",
+          "nxtx37": "Congress",
+          "nxtx29": "Consumer",
+          "nxtx17536": "Corrections",
+          "nxtx19716": "Corrections",
+          "nxtx27": "Diabetes",
+          "nxtx19601": "Donald Trump",
+          "nxtx19036": "Dorm Room CEO",
+          "nxtx39": "Economy",
+          "nxtx25": "Education",
+          "nxtx24": "Elections",
+          "nxtx88": "Energy",
+          "nxtx19506": "Environment",
+          "nxtx51": "Environment",
+          "nxtx47": "Europe",
+          "nxtx19236": "Facebook Instant Article",
+          "nxtx20186": "Feature",
+          "nxtx20056": "Features",
+          "nxtx19511": "Features",
+          "nxtx63": "First Read",
+          "nxtx81": "Gadgets",
+          "nxtx17581": "Gift Guide",
+          "nxtx20316": "Harvey Weinstein Scandal",
+          "nxtx68": "Health Care",
+          "nxtx62": "Health news",
+          "nxtx9": "Heart Health",
+          "nxtx17751": "Hillary Clinton",
+          "nxtx19766": "How I Got In",
+          "nxtx17741": "Immigration",
+          "nxtx17716": "India",
+          "nxtx11": "Innovation",
+          "nxtx19516": "Innovation",
+          "nxtx56": "Internet",
+          "nxtx70": "Investigations",
+          "nxtx17756": "John Boehner",
+          "nxtx36": "Justice Department",
+          "nxtx58": "Kids' Health",
+          "nxtx59": "Know it All",
+          "nxtx20": "Latin America",
+          "nxtx53": "Latino",
+          "nxtx17351": "Lifestyle",
+          "nxtx19741": "Lifestyle",
+          "nxtx52": "Markets",
+          "nxtx18591": "Media Central",
+          "nxtx18181": "Meet the Voters",
+          "nxtx14": "Men's Health",
+          "nxtx1": "Mental Health",
+          "nxtx17721": "Mexico",
+          "nxtx26": "Mideast",
+          "nxtx16": "Military",
+          "nxtx17": "Mobile",
+          "nxtx91": "Movies",
+          "nxtx21": "Music",
+          "nxtx55": "National Security",
+          "nxtx19181": "NBC Out &amp; Proud",
+          "nxtx18276": "NBCBLK",
+          "nxtx18581": "Newsconnect",
+          "nxtx17711": "North Korea",
+          "nxtx17731": "Obamacare",
+          "nxtx20521": "Obituaries",
+          "nxtx19336": "Olympics",
+          "nxtx19931": "One Small Thing",
+          "nxtx20176": "Opinion",
+          "nxtx19206": "OUT Community Voices",
+          "nxtx19196": "OUT Health and Wellness",
+          "nxtx19191": "OUT Life and Style",
+          "nxtx19211": "OUT News",
+          "nxtx19186": "OUT Politics and Policy",
+          "nxtx19201": "OUT Pop Culture",
+          "nxtx20196": "Paid Content",
+          "nxtx19746": "Parenting",
+          "nxtx17346": "Parenting",
+          "nxtx18191": "Paul Ryan",
+          "nxtx67": "Photo",
+          "nxtx18": "Politics News",
+          "nxtx32": "Pop Culture News",
+          "nxtx17726": "Pope Francis",
+          "nxtx18186": "Rand Paul",
+          "nxtx61": "Real Estate",
+          "nxtx35": "Religion",
+          "nxtx87": "Retirement",
+          "nxtx19521": "Science",
+          "nxtx2": "Science News",
+          "nxtx38": "Security",
+          "nxtx85": "Sexual Health",
+          "nxtx86": "Social Media",
+          "nxtx18576": "Social Platforms",
+          "nxtx19526": "Space",
+          "nxtx83": "Space",
+          "nxtx20076": "Specials",
+          "nxtx17441": "Sports",
+          "nxtx19056": "Sports",
+          "nxtx19041": "Student Bodies",
+          "nxtx12": "Supreme Court",
+          "nxtx3": "Taxes",
+          "nxtx84": "Tech News",
+          "nxtx19531": "Technology",
+          "nxtx19991": "The Big Questions",
+          "nxtx13": "Travel",
+          "nxtx82": "TV",
+          "nxtx66": "U.S. news",
+          "nxtx20026": "Velshi &amp; Ruhle",
+          "nxtx5": "Veterans",
+          "nxtx30": "Video",
+          "nxtx92": "Video Games",
+          "nxtx10": "Viral",
+          "nxtx18196": "Vladimir Putin",
+          "nxtx28": "Weather",
+          "nxtx19721": "Week in Pictures",
+          "nxtx90": "Weird News",
+          "nxtx45": "Weird Science",
+          "nxtx80": "White House",
+          "nxtx19031": "Why I Chose",
+          "nxtx18771": "Winning the Waiting Game",
+          "nxtx72": "Women's Health",
+          "nxtx8": "World",
+          "nxtx18596": "Writing",
+          "nxtx20021": "Your Business"
+        },
+        "settings": {
+          "collapsed": true
+        },
+        "multiselect": true,
+        "transform": {
+          "send": "true",
+          "type": "text"
+        },
+        "validation": {
+          "presence": true,
+          "length": {
+            "minimum": 3,
+            "maximum": 20
+          },
+          "format": {
+            "pattern": "[A-Za-z0-9]+",
+            "flags": "i",
+            "message": "SOOOOO can only contain a-z and 0-9"
+          }
+        }
+      }
+    }
+  },
+  {
+    "inputType": "fieldGroup",
+    "name": "Publishing Group",
+    "label": "Publishing Options",
+    "helpText": "",
+    "brands": {
+      "nbcnews": true,
+      "today": false,
+      "msnbc": true
+    },
+    "settings": {
+      "collapseTarget": "publishing-group-collapse",
+      "collapsed": true
+    },
+    "transform": {
+      "send": "true",
+      "type": "text"
+    },
+    "validation": {
+      "presence": true
+    },
+    "fields": {
+      "adsEnabled": {
+        "inputType": "inputCheckBoxField",
+        "name": "adsEnabled",
+        "title": "Ads enabled",
+        "id": "adsEnabled",
+        "class": "publishing-group-collapse",
+        "label": "",
+        "helpText": "Check this box if Ads can be placed on or in this content.",
+        "settings": {
+          "collapsed": true
+        },
+        "transform": {
+          "send": true,
+          "type": "boolean"
+        },
+        "brands": {
+          "nbcnews": true,
+          "today": false,
+          "msnbc": true
+        },
+        "validation": false
+      },
+      "searchable": {
+        "inputType": "inputCheckBoxField",
+        "name": "searchable",
+        "title": "Searchable",
+        "id": "searchable",
+        "class": "publishing-group-collapse",
+        "label": "",
+        "helpText": "Check this box if the content should be available for web searches.",
+        "settings": {
+          "collapsed": true
+        },
+        "transform": {
+          "send": true,
+          "type": "boolean"
+        },
+        "brands": {
+          "nbcnews": true,
+          "today": false,
+          "msnbc": true
+        },
+        "validation": false
+      },
+      "ecommerceEnabled": {
+        "inputType": "inputCheckBoxField",
+        "name": "ecommerceEnabled",
+        "title": "E-Commerce enabled",
+        "id": "ecommerceEnabled",
+        "class": "publishing-group-collapse",
+        "label": "",
+        "helpText": "Check this box if this content has product placements or sales.",
+        "settings": {
+          "collapsed": true
+        },
+        "transform": {
+          "send": true,
+          "type": "boolean"
+        },
+        "brands": {
+          "nbcnews": true,
+          "today": false,
+          "msnbc": true
+        },
+        "validation": false
+      },
+      "hidden": {
+        "inputType": "inputCheckBoxField",
+        "name": "hidden",
+        "id": "hidden",
+        "title": "Hidden",
+        "class": "publishing-group-collapse",
+        "label": "",
+        "helpText": "Check this box if the content should be hidden from autolists and curations.",
+        "settings": {
+          "collapsed": true
+        },
+        "transform": {
+          "send": true,
+          "type": "boolean"
+        },
+        "brands": {
+          "nbcnews": true,
+          "today": false,
+          "msnbc": true
+        },
+        "validation": false
+      },
+      "nativeAd": {
+        "inputType": "inputCheckBoxField",
+        "name": "nativeAd",
+        "id": "nativeAd",
+        "title": "Native ad",
+        "class": "publishing-group-collapse",
+        "label": "",
+        "helpText": "Check this box if the content is provided by a sponsor.",
+        "settings": {
+          "collapsed": true
+        },
+        "transform": {
+          "send": true,
+          "type": "boolean"
+        },
+        "brands": {
+          "nbcnews": true,
+          "today": false,
+          "msnbc": true
+        },
+        "validation": false
+      },
+      "Publish Date": {
+        "inputType": "inputDateField",
+        "title": "Published",
+        "name": "datePublished",
+        "id": "datePublished",
+        "label": "Published date",
+        "helpText": "This is the date that is shown on the Website and indicates the date the content was first published.",
+        "class": "publishing-group-collapse",
+        "brands": {
+          "nbcnews": true,
+          "today": false,
+          "msnbc": true
+        },
+        "settings": {
+          "collapsed": true
+        },
+        "transform": {
+          "send": "true",
+          "type": "text"
+        },
+        "validation": {
+          "presence": true,
+          "length": {
+            "minimum": 3,
+            "maximum": 20
+          },
+          "format": {
+            "pattern": "[A-Za-z0-9]+",
+            "flags": "i",
+            "message": "SOOOOO can only contain a-z and 0-9"
+          }
+        }
+      },
+      "Updated Date": {
+        "inputType": "inputDateField",
+        "title": "Updated",
+        "name": "dateModified",
+        "id": "dateModified",
+        "label": "Updated date",
+        "helpText": "This date indicates the last time a significant editorial change was made.",
+        "class": "publishing-group-collapse",
+        "brands": {
+          "nbcnews": true,
+          "today": false,
+          "msnbc": true
+        },
+        "settings": {
+          "collapsed": true
+        },
+        "transform": {
+          "send": "true",
+          "type": "text"
+        },
+        "validation": {
+          "presence": true,
+          "length": {
+            "minimum": 3,
+            "maximum": 20
+          },
+          "format": {
+            "pattern": "[A-Za-z0-9]+",
+            "flags": "i",
+            "message": "SOOOOO can only contain a-z and 0-9"
+          }
+        }
+      }
+    }
+  },
+  {
+    "inputType": "fieldGroup",
+    "name": "Media Group",
+    "label": "Main art, cover and tease images",
+    "helpText": "",
+    "brands": {
+      "nbcnews": true,
+      "today": false,
+      "msnbc": true
+    },
+    "settings": {
+      "collapseTarget": "media-group-collapse",
+      "collapsed": true
+    },
+    "transform": {
+      "send": "true",
+      "type": "text"
+    },
+    "validation": {
+      "presence": true
+    },
+    "fields": {
+      "Cover Image": {
+        "inputType": "inputFileField",
+        "title": "Main Art",
+        "name": "mainArt",
+        "id": "mainArt",
+        "label": "",
+        "helpText": "",
+        "class": "col-md-6 media-group-collapse",
+        "brands": {
+          "nbcnews": true,
+          "today": true,
+          "msnbc": true
+        },
+        "settings": {
+          "collapsed": true
+        },
+        "transform": {
+          "send": "true",
+          "type": "text"
+        },
+        "validation": {
+          "presence": true
+        }
+      },
+      "Tease Image" : {
+        "inputType": "inputFileField",
+        "title": "Cover/Tease Art",
+        "name": "teaseArt",
+        "id": "teaseArt",
+        "label": "",
+        "helpText": "",
+        "class": "col-md-6 media-group-collapse",
+        "brands": {
+          "nbcnews": true,
+          "today": true,
+          "msnbc": true
+        },
+        "settings": {
+          "collapsed": true
+        },
+        "transform": {
+          "send": "true",
+          "type": "text"
+        },
+        "validation": {
+          "presence": true
+        }
+      }
+    }
+  }
+]

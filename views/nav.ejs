@@ -1,0 +1,84 @@
+  <header class="main-header">
+    <!-- Logo -->
+    <a href="/" class="logo">
+      <!-- mini logo for sidebar mini 50x50 pixels -->
+      <span class="logo-mini"><b>R</b>CK</span>
+      <!-- logo for regular state and mobile devices -->
+      <span class="logo-lg"><b>Rock</b>CMS</span>
+    </a>
+    <!-- Header Navbar: style can be found in header.less -->
+    <nav class="navbar navbar-static-top brand-header-<%= typeof currentBrand!='undefined' ? currentBrand : '' %>">
+      <!-- Sidebar toggle button-->
+      <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+        <span class="sr-only">Toggle navigation</span>
+      </a>
+
+      <div class="navbar-custom-menu">
+        <ul class="nav navbar-nav">
+
+          <!-- Notifications: style can be found in dropdown.less -->
+
+        <% if(typeof userData != 'undefined') { %>
+          <% Object.keys(userData.brands).forEach(key => { %>
+              <li class="dropdown notifications-menu">
+                <a href="?publisher=<%= userData.brands[key] %>" ><img src = "/public/dist/images/<%= userData.brands[key] %>.png"> </a>
+               </li>
+            <% }); %>
+        <% } %>
+
+
+          <!-- User Account: style can be found in dropdown.less -->
+          <li class="dropdown user user-menu">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <img src="<%= userData.signature %>" class="user-image" alt="User Image">
+              <span class="hidden-xs"><%= userData.name %></span>
+            </a>
+            <ul class="dropdown-menu">
+              <!-- User image -->
+              <li class="user-header">
+                <img src="<%= userData.signature %>" class="img-circle" alt="User Image">
+
+                <p><%= userData.name %> - Web Developer
+                  <small>Member since Nov. 2012</small>
+                </p>
+              </li>
+              <!-- Menu Body -->
+              <li class="user-body">
+                <div class="row">
+                  <div class="col-xs-4 text-center">
+                    <a href="#">Administrator</a>
+                  </div>
+                  <div class="col-xs-4 text-center">
+                    <a href="#">Recent Activity</a>
+                  </div>
+                  <div class="col-xs-4 text-center">
+                    <a href="#">Permissions</a>
+                  </div>
+                </div>
+                <!-- /.row -->
+              </li>
+              <!-- Menu Footer-->
+              <li class="user-footer">
+                <div class="pull-left">
+                  <a href="#" class="btn btn-default btn-flat">Profile</a>
+                </div>
+                <div class="pull-right">
+                  <a href="/login" class="btn btn-default btn-flat">Sign out</a>
+                </div>
+              </li>
+            </ul>
+          </li>
+          <!-- Control Sidebar Toggle Button -->
+          <li>
+            <a href="/node/add" ><i class="fa fa-fw fa-plus"></i></a>
+          </li>
+          <li>
+            <a href="#" class = "open-scratch-pad" data-toggle="modal" data-target="#modal-default"><i class="fa fa-book"></i></a>
+          </li>
+          <li>
+            <a href="#" class = "open-right-rail" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
